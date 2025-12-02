@@ -275,11 +275,106 @@
         .privacy-icon {
             transition: all 0.3s ease;
         }
+
+        /* Animated Road SVG */
+        .road-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .road-svg {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100%;
+            width: auto;
+            min-width: 100%;
+        }
+
+        /* Road base (dark asphalt) */
+        .road-base {
+            fill: none;
+            stroke: rgba(30, 41, 59, 0.8);
+            stroke-width: 60;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Road edge lines */
+        .road-edge {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.15);
+            stroke-width: 2;
+            stroke-linecap: round;
+        }
+
+        /* Center dashed line */
+        .road-center {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.4);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-dasharray: 20 15;
+            animation: roadDash 1s linear infinite;
+        }
+
+        @keyframes roadDash {
+            to {
+                stroke-dashoffset: -35;
+            }
+        }
+
+        /* Road drawing animation on scroll */
+        .road-draw {
+            stroke-dasharray: var(--road-length);
+            stroke-dashoffset: var(--road-length);
+            transition: stroke-dashoffset 0.1s ease-out;
+        }
     </style>
 </head>
 <body class="gradient-bg font-sans text-white">
     <!-- Background Effects -->
     <div class="bg-effects"></div>
+
+    <!-- Animated Road SVG -->
+    <div class="road-container">
+        <svg class="road-svg" viewBox="0 0 400 2000" preserveAspectRatio="xMidYMin slice">
+            <defs>
+                <linearGradient id="roadGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgba(30, 41, 59, 0.9)"/>
+                    <stop offset="100%" style="stop-color:rgba(30, 41, 59, 0.6)"/>
+                </linearGradient>
+            </defs>
+            <!-- Road base (asphalt) -->
+            <path id="road-path" class="road-base road-draw"
+                d="M200,0
+                   C200,100 100,150 100,250
+                   C100,350 300,400 300,500
+                   C300,600 50,700 100,850
+                   C150,1000 350,950 300,1100
+                   C250,1250 100,1300 150,1450
+                   C200,1600 300,1550 280,1700
+                   C260,1850 200,1900 200,2000"
+                stroke="url(#roadGradient)"/>
+            <!-- Road center dashed line -->
+            <path class="road-center road-draw"
+                d="M200,0
+                   C200,100 100,150 100,250
+                   C100,350 300,400 300,500
+                   C300,600 50,700 100,850
+                   C150,1000 350,950 300,1100
+                   C250,1250 100,1300 150,1450
+                   C200,1600 300,1550 280,1700
+                   C260,1850 200,1900 200,2000"/>
+        </svg>
+    </div>
 
     <!-- Hero Section -->
     <section class="min-h-screen flex flex-col items-center justify-center px-6 py-20">
@@ -570,6 +665,36 @@
 
             window.addEventListener('scroll', checkReveal);
             checkReveal(); // Check on load
+        })();
+
+        // Animated Road on Scroll
+        (function() {
+            const roadPaths = document.querySelectorAll('.road-draw');
+            if (roadPaths.length === 0) return;
+
+            // Calculate and set path lengths
+            roadPaths.forEach(path => {
+                const length = path.getTotalLength();
+                path.style.setProperty('--road-length', length);
+                path.style.strokeDasharray = length;
+                path.style.strokeDashoffset = length;
+            });
+
+            function updateRoad() {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = Math.min(scrollTop / docHeight, 1);
+
+                roadPaths.forEach(path => {
+                    const length = parseFloat(path.style.getPropertyValue('--road-length'));
+                    // Draw road as user scrolls (reverse offset from length to 0)
+                    const drawLength = length * (1 - scrollPercent);
+                    path.style.strokeDashoffset = drawLength;
+                });
+            }
+
+            window.addEventListener('scroll', updateRoad);
+            updateRoad(); // Initialize on load
         })();
     </script>
 
