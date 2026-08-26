@@ -96,10 +96,12 @@ three.
   `https://apps.apple.com/app/id<APPLE_ID>` and add
   `<meta name="apple-itunes-app" content="app-id=<APPLE_ID>">` to each page's
   head for the Safari smart banner.
-- **Images.** Screenshots are committed at full resolution and derivatives are
-  generated from them. Never reference `assets/screenshot-N.png` from a page —
-  they are 1 MB each. Use the `-320/-480/-640/-960.webp` set with the `-640.png`
-  fallback.
+- **Images.** App screenshots live in `assets/screens/` as `<name>.png` (the
+  full-resolution source, 1320x2868) plus generated `-320/-480/-640/-960.webp`
+  and a `-640.png` fallback. Never reference the full-size source from a page.
+  When the app's UI changes, drop the new captures in with **new names** (or a
+  version suffix) rather than overwriting — GitHub Pages and browsers cache by
+  URL, and overwriting in place left returning visitors on the old shots.
 - **`sitemap.xml` lastmod is hand-maintained.** Bump a date when that page's own
   content changes, not on every deploy.
 - **Claims stay verifiable.** No ratings, no download counts, no specific tax
