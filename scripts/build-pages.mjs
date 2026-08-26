@@ -33,6 +33,9 @@ export const APP_STORE_URL = 'https://apps.apple.com/us/developer/neuera-apps/id
 const layout = await readFile(join(ROOT, 'src/layout.html'), 'utf8')
 const files = (await readdir(join(ROOT, 'src/pages'))).filter((f) => f.endsWith('.html')).sort()
 
+/** Escape text for use inside <title> and attribute values. */
+const esc = (s) => String(s).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;')
+
 /** Pull the leading <!--meta { ... } --> block off a fragment. */
 function splitFragment(raw, file) {
   const match = raw.match(/^<!--meta\s*([\s\S]*?)-->\s*/)
@@ -117,8 +120,8 @@ for (const file of files) {
   const canonical = isRoot ? `${SITE}/404.html` : `${SITE}/${meta.slug}/`
 
   const html = layout
-    .replaceAll('{{TITLE}}', meta.title)
-    .replaceAll('{{DESCRIPTION}}', meta.description)
+    .replaceAll('{{TITLE}}', esc(meta.title))
+    .replaceAll('{{DESCRIPTION}}', esc(meta.description))
     .replaceAll('{{CANONICAL}}', canonical)
     .replaceAll('{{ROBOTS}}', meta.noindex ? 'noindex, follow' : 'index,follow,max-image-preview:large')
     .replaceAll('{{JSONLD}}', meta.noindex ? '' : structuredData(meta, canonical))
