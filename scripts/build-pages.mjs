@@ -125,6 +125,7 @@ for (const file of files) {
     .replaceAll('{{CANONICAL}}', canonical)
     .replaceAll('{{ROBOTS}}', meta.noindex ? 'noindex, follow' : 'index,follow,max-image-preview:large')
     .replaceAll('{{JSONLD}}', meta.noindex ? '' : structuredData(meta, canonical))
+    .replaceAll('{{OGTYPE}}', meta.ogType || 'article')
     .replaceAll('{{BODY}}', body)
     .replaceAll('{{APP_STORE_URL}}', APP_STORE_URL)
     // Play referrer campaign is per page so Play Console shows which guide
@@ -133,8 +134,16 @@ for (const file of files) {
     // Last, so a {{BASE}} inside an injected value still resolves.
     .replaceAll('{{BASE}}', base)
 
+  // A noindex page must not self-canonicalize or claim an og:url — an error
+  // page that does is the textbook soft-404 shape.
+  const final = meta.noindex
+    ? html
+        .replace(`    <link rel="canonical" href="${canonical}">\n`, '')
+        .replace(`    <meta property="og:url" content="${canonical}">\n`, '')
+    : html
+
   await mkdir(dirname(outPath), { recursive: true })
-  await writeFile(outPath, html)
+  await writeFile(outPath, final)
   console.log(`  ${file} -> ${outPath.slice(ROOT.length + 1)}`)
   written++
 }
