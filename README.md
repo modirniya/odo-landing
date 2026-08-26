@@ -144,9 +144,13 @@ together at the bottom of `support/index.html`.
   Play referrer above; on-site behaviour is not measured at all.
 - **No Search Console verification file.** Add the HTML verification file to the
   repo root, then submit `https://odometer.pro/sitemap.xml`.
-- **App Store ID.** See the badge note above — the site links the developer
-  page until the listing exists. The `MobileApplication` schema's `sameAs` and
-  `installUrl` should gain the App Store URL at the same time.
+- **App Store launch checklist.** The copy currently says the iPhone version is
+  *coming* (home FAQ ×2, download section, meta description, guide CTAs, badge
+  aria-labels) and the `MobileApplication` schema says `operatingSystem:
+  "Android"`. When the listing is live: swap the three App Store URLs (see the
+  badge note above), flip that copy to present tense, set `operatingSystem` to
+  `"Android, iOS"`, add the App Store URL to `sameAs`/`installUrl`, and add
+  `<meta name="apple-itunes-app" content="app-id=<APPLE_ID>">`.
 
 ## Deploy
 
