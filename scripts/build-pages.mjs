@@ -24,6 +24,12 @@ import { fileURLToPath } from 'node:url'
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://odometer.pro'
 
+// Store links. The App Store href is the NeuEra developer page until Odo's
+// own listing is live — a badge that 404s is worse than one that lands on a
+// page listing the app. Swap in https://apps.apple.com/app/id<APPLE_ID> once
+// App Store Connect shows it (and update the two copies in index.html).
+export const APP_STORE_URL = 'https://apps.apple.com/us/developer/neuera-apps/id1895216844'
+
 const layout = await readFile(join(ROOT, 'src/layout.html'), 'utf8')
 const files = (await readdir(join(ROOT, 'src/pages'))).filter((f) => f.endsWith('.html')).sort()
 
@@ -117,6 +123,10 @@ for (const file of files) {
     .replaceAll('{{ROBOTS}}', meta.noindex ? 'noindex, follow' : 'index,follow,max-image-preview:large')
     .replaceAll('{{JSONLD}}', meta.noindex ? '' : structuredData(meta, canonical))
     .replaceAll('{{BODY}}', body)
+    .replaceAll('{{APP_STORE_URL}}', APP_STORE_URL)
+    // Play referrer campaign is per page so Play Console shows which guide
+    // produced the install.
+    .replaceAll('{{PLAY_CAMPAIGN}}', `guide_${meta.slug.replaceAll('-', '_')}`)
     // Last, so a {{BASE}} inside an injected value still resolves.
     .replaceAll('{{BASE}}', base)
 

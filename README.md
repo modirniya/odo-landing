@@ -1,6 +1,6 @@
 # Odo Landing Page
 
-Marketing and beta-recruitment site for **Odo: Simple Mileage Tracking**, live at
+Marketing site for **Odo: Simple Mileage Tracking**, live at
 [odometer.pro](https://odometer.pro/). Static HTML on GitHub Pages, deployed from
 `main` at the repo root.
 
@@ -89,6 +89,13 @@ three.
   `&referrer=utm_source%3Dodometer.pro%26utm_medium%3Dweb%26utm_campaign%3D<placement>`
   so Play Console attributes the install. A bare listing URL reports as organic
   and makes the site unmeasurable.
+- **The App Store badge points at the NeuEra developer page** until Odo's own
+  listing is live. The URL is `APP_STORE_URL` in `scripts/build-pages.mjs`
+  (feeds the guide pages) and appears twice in `index.html` (hero, download
+  section). When App Store Connect shows the Apple ID, swap all three to
+  `https://apps.apple.com/app/id<APPLE_ID>` and add
+  `<meta name="apple-itunes-app" content="app-id=<APPLE_ID>">` to each page's
+  head for the Safari smart banner.
 - **Images.** Screenshots are committed at full resolution and derivatives are
   generated from them. Never reference `assets/screenshot-N.png` from a page —
   they are 1 MB each. Use the `-320/-480/-640/-960.webp` set with the `-640.png`
@@ -135,9 +142,9 @@ together at the bottom of `support/index.html`.
   Play referrer above; on-site behaviour is not measured at all.
 - **No Search Console verification file.** Add the HTML verification file to the
   repo root, then submit `https://odometer.pro/sitemap.xml`.
-- **iOS.** The app has an iOS bundle (`pro.odometer.ios`) but is not shipped.
-  When it lands, add App Store badges, `apple-itunes-app` meta, and update the
-  "Android only" copy and the `MobileApplication` schema.
+- **App Store ID.** See the badge note above — the site links the developer
+  page until the listing exists. The `MobileApplication` schema's `sameAs` and
+  `installUrl` should gain the App Store URL at the same time.
 
 ## Deploy
 
