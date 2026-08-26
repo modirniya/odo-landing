@@ -1,0 +1,218 @@
+<!--meta
+{
+  "slug": "mileage-log-for-taxes",
+  "breadcrumb": "Mileage log for taxes",
+  "heading": "How to keep a mileage log for taxes",
+  "title": "How to Keep a Mileage Log for Taxes — Odo",
+  "description": "What a mileage log needs to contain, why contemporaneous records matter, and how to keep one in a few seconds per trip using odometer readings instead of background GPS.",
+  "published": "2026-08-25",
+  "faq": [
+    {
+      "q": "What does a mileage log need to contain?",
+      "a": "Tax authorities generally expect four things per business trip: the date, the business purpose, the distance driven, and where you went. Most also want to see your odometer reading at the start and end of the year so the business share can be checked against total mileage. Check the exact requirements published by your own tax authority, since they differ by country."
+    },
+    {
+      "q": "Does a mileage log have to be written at the time of the trip?",
+      "a": "It should be. A record kept at or near the time of each trip is far more credible than one reconstructed months later, and some tax authorities say so explicitly. A log built from memory in April is the kind that falls apart under review."
+    },
+    {
+      "q": "Can I use a spreadsheet instead of an app?",
+      "a": "Yes. A spreadsheet is a perfectly valid mileage log if you actually keep it up to date. The practical problem is that it is not in your hand at the moment you park, which is when the reading is available and the trip is fresh."
+    },
+    {
+      "q": "Do I need GPS tracking for my mileage log to count?",
+      "a": "No. What matters is that the record is accurate, complete and kept close to the time of the trip. Odometer readings satisfy that, and they come straight off the vehicle's own instrument rather than from an estimate of where a phone travelled."
+    },
+    {
+      "q": "How long should I keep my mileage records?",
+      "a": "Long enough to cover the period in which your return can be examined, which is typically several years and varies by country. Keep the exported CSV or PDF alongside the rest of that year's records rather than relying on the app alone."
+    }
+  ]
+}
+-->
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" class="max-w-3xl mx-auto px-6 pt-10">
+            <ol class="flex items-center gap-2 text-sm text-gray-500">
+                <li><a href="{{BASE}}" class="hover:text-gray-300 transition-colors">Odo</a></li>
+                <li aria-hidden="true" class="text-gray-700">/</li>
+                <li class="text-gray-400" aria-current="page">Mileage log for taxes</li>
+            </ol>
+        </nav>
+
+        <article class="pt-8 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+                    How to keep a mileage log for taxes
+                </h1>
+                <p class="text-gray-400 text-xl leading-relaxed mb-12 max-w-2xl">
+                    The rules are less complicated than the software sold to satisfy them. A usable
+                    mileage log is four facts per trip, written down close to when you drove.
+                </p>
+
+                <div class="glass-card rounded-[2rem] p-8 md:p-12 prose-odo">
+                    <h2>What a mileage log has to contain</h2>
+                    <p>
+                        Wording differs between countries, but the substance is remarkably consistent.
+                        For each business trip, a log is expected to show:
+                    </p>
+                    <ul>
+                        <li><strong>The date</strong> you made the trip.</li>
+                        <li><strong>The business purpose</strong> &mdash; who you saw or what you were doing, not just "work".</li>
+                        <li><strong>The distance driven</strong>, ideally from odometer readings rather than an estimate.</li>
+                        <li><strong>Where you went</strong>, at least well enough to identify the journey later.</li>
+                    </ul>
+                    <p>
+                        Most authorities also want your odometer reading at the start and end of the year, so
+                        the business share can be sanity-checked against the total distance the vehicle
+                        covered. That is the number that makes a log defensible: it shows the business
+                        miles as a fraction of something real, not a figure floating on its own.
+                    </p>
+                    <p>
+                        Check the specifics your own tax authority publishes before you file. The
+                        requirements are stable but not identical from country to country, and the
+                        per-mile or per-kilometre rate changes most years.
+                    </p>
+
+                    <h2>Write it down at the time</h2>
+                    <p>
+                        This is the part people skip and the part that matters most. A record made at or
+                        near the time of each trip carries weight. A record assembled in April from bank
+                        statements, calendar entries and memory does not, and some authorities say as
+                        much in plain language.
+                    </p>
+                    <p>
+                        The practical consequence: whatever you use has to be usable in the ten seconds
+                        between switching the engine off and getting out of the car. A spreadsheet on a
+                        laptop at home is a valid log that you will not keep. That is why the odometer
+                        reading is such a good anchor &mdash; it is on the dashboard in front of you, at
+                        exactly the moment you need it.
+                    </p>
+
+                    <h2>Standard rate or actual expenses</h2>
+                    <p>
+                        Broadly, there are two ways to turn business driving into a deduction. You can
+                        multiply your business distance by a flat rate published by the tax authority,
+                        or you can claim the business share of what the vehicle actually cost you
+                        &mdash; fuel, insurance, servicing, depreciation.
+                    </p>
+                    <p>
+                        Both routes need the same underlying record. The flat-rate method needs your
+                        business distance; the actual-cost method needs your business distance <em>and</em>
+                        your receipts, because the business share is a percentage of total mileage. Either
+                        way, a log with a distance and a purpose on every line is the thing you cannot
+                        skip.
+                    </p>
+                    <p>
+                        Which one comes out ahead depends on the vehicle and the year, and in some
+                        jurisdictions choosing one in the first year constrains what you can do later.
+                        That is a question for your accountant, not for a landing page.
+                    </p>
+
+                    <h2>What this looks like in Odo</h2>
+                    <p>
+                        <a href="{{BASE}}">Odo</a> was built around this specific job, which is why it does
+                        not try to detect trips for you:
+                    </p>
+                    <ul>
+                        <li>
+                            You type the <strong>start and end odometer</strong> readings; the distance
+                            calculates itself. No estimate, no GPS trace to argue about.
+                        </li>
+                        <li>
+                            One tap marks the trip <strong>business or personal</strong>, and a note field
+                            holds the purpose.
+                        </li>
+                        <li>
+                            <strong>Backdating is date-aware.</strong> Log a drive from last Tuesday and
+                            Odo prefills the reading the vehicle actually had that day, and refuses entries
+                            that would make the mileage run backwards in time.
+                        </li>
+                        <li>
+                            At the end of the year, <strong>export a CSV</strong> with ISO dates and
+                            summaries for any date range, or a <strong>PDF report</strong> with the
+                            deduction worked out at the rate you set.
+                        </li>
+                        <li>
+                            Costs go in the same place, under fuel, tolls, parking, maintenance, car wash
+                            or other &mdash; so the actual-expenses route is available if that is the one
+                            you take.
+                        </li>
+                    </ul>
+                    <p>
+                        The rate is a field you set, not a number we hardcode, precisely because it
+                        changes and because it is different everywhere. Put in whatever your tax
+                        authority publishes for the year you are filing.
+                    </p>
+
+                    <h2>The habit, not the app</h2>
+                    <p>
+                        Every mileage log that survives a review has one thing in common, and it is not
+                        the tool. It is that someone wrote the number down every time. Pick whatever makes
+                        that take five seconds &mdash; a notebook is fine &mdash; and then actually do it
+                        on the trips that are boring and short, which are the ones that add up.
+                    </p>
+                </div>
+
+                <!-- FAQ -->
+                <div class="glass-card rounded-[2rem] p-8 md:p-12 mt-10">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-8">Common questions</h2>
+                    <div>
+                        <details class="faq-item">
+                            <summary class="faq-q">What does a mileage log need to contain?</summary>
+                            <div class="faq-a">
+                                <p>Tax authorities generally expect four things per business trip: the date, the business purpose, the distance driven, and where you went. Most also want to see your odometer reading at the start and end of the year so the business share can be checked against total mileage. Check the exact requirements published by your own tax authority, since they differ by country.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">Does a mileage log have to be written at the time of the trip?</summary>
+                            <div class="faq-a">
+                                <p>It should be. A record kept at or near the time of each trip is far more credible than one reconstructed months later, and some tax authorities say so explicitly. A log built from memory in April is the kind that falls apart under review.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">Can I use a spreadsheet instead of an app?</summary>
+                            <div class="faq-a">
+                                <p>Yes. A spreadsheet is a perfectly valid mileage log if you actually keep it up to date. The practical problem is that it is not in your hand at the moment you park, which is when the reading is available and the trip is fresh.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">Do I need GPS tracking for my mileage log to count?</summary>
+                            <div class="faq-a">
+                                <p>No. What matters is that the record is accurate, complete and kept close to the time of the trip. Odometer readings satisfy that, and they come straight off the vehicle's own instrument rather than from an estimate of where a phone travelled.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">How long should I keep my mileage records?</summary>
+                            <div class="faq-a">
+                                <p>Long enough to cover the period in which your return can be examined, which is typically several years and varies by country. Keep the exported CSV or PDF alongside the rest of that year's records rather than relying on the app alone.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="glass-card rounded-[2rem] p-8 md:p-12 mt-10 text-center">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">Start the log you'll actually keep</h2>
+                    <p class="text-gray-400 mb-8 max-w-xl mx-auto">
+                        Odo is free, has no ads, needs no account, and keeps everything on your phone.
+                        Android beta is open now.
+                    </p>
+                    <a href="{{BASE}}#join" class="inline-flex items-center gap-3 btn-primary text-white font-semibold px-8 py-4 rounded-full">
+                        Join the Android beta
+                    </a>
+                </div>
+
+                <p class="text-gray-600 text-sm mt-10 leading-relaxed">
+                    This page is general information about record-keeping, not tax advice. Rates,
+                    eligibility and retention periods differ by country and change over time &mdash;
+                    check what your own tax authority currently publishes, and talk to an accountant
+                    about your situation.
+                </p>
+
+                <p class="text-gray-500 text-sm mt-6">
+                    Related: <a href="{{BASE}}mileage-tracker-without-gps/" class="text-primary-400 hover:text-primary-300 underline underline-offset-2">why we built a mileage tracker without GPS</a>
+                    &middot;
+                    <a href="{{BASE}}mileage-log-for-rideshare-drivers/" class="text-primary-400 hover:text-primary-300 underline underline-offset-2">mileage logs for rideshare and delivery drivers</a>
+                </p>
+            </div>
+        </article>

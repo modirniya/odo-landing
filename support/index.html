@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Odo</title>
+    <meta name="description" content="Get help with Odo, the simple mileage tracking app. Report a bug, request a feature, or ask about exports and your data. A human reads every message.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="canonical" href="https://odometer.pro/support/">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+    <!-- Fonts: self-hosted Inter. 400/800 render above the fold. -->
+    <link rel="preload" href="../assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/inter-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Compiled Tailwind + site styles (npm run build) -->
+    <link rel="stylesheet" href="../assets/site.css">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Odo">
+    <meta property="og:url" content="https://odometer.pro/support/">
+    <meta property="og:title" content="Support — Odo">
+    <meta property="og:description" content="Get help with Odo. Report a bug, request a feature, or ask about exports and your data.">
+    <meta property="og:image" content="https://odometer.pro/assets/og-default.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Odo — simple mileage tracking, showing the monthly mileage and expense summary">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Support — Odo">
+    <meta name="twitter:description" content="Get help with Odo. Report a bug, request a feature, or ask about exports and your data.">
+    <meta name="twitter:image" content="https://odometer.pro/assets/og-default.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ContactPage",
+          "@id": "https://odometer.pro/support/#page",
+          "url": "https://odometer.pro/support/",
+          "name": "Support — Odo",
+          "inLanguage": "en",
+          "about": { "@id": "https://odometer.pro/#app" },
+          "publisher": { "@id": "https://odometer.pro/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://odometer.pro/#organization",
+          "name": "NeuEra Apps LLC",
+          "url": "https://odometer.pro/",
+          "logo": "https://odometer.pro/assets/apple-touch-icon.png",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "hello@neuera.app",
+            "url": "https://odometer.pro/support/",
+            "availableLanguage": ["English"]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Odo", "item": "https://odometer.pro/" },
+            { "@type": "ListItem", "position": 2, "name": "Support", "item": "https://odometer.pro/support/" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="gradient-bg font-sans text-white">
+    <!-- Background Effects -->
+    <div class="bg-effects"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+            <a href="../" class="flex items-center gap-3 flex-shrink-0" aria-label="Odo home">
+                <img src="../assets/icon-192.png" alt="" width="32" height="32" class="w-8 h-8 rounded-lg">
+                <span class="text-lg font-extrabold tracking-tight">Odo</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="../#features" class="hover:text-white transition-colors">Features</a>
+                <a href="../#how" class="hover:text-white transition-colors">How it works</a>
+                <a href="../#faq" class="hover:text-white transition-colors">FAQ</a>
+                <a href="./" class="text-white transition-colors" aria-current="page">Support</a>
+            </nav>
+
+            <a href="../#join" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full flex-shrink-0">
+                Join the beta
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" class="max-w-3xl mx-auto px-6 pt-10">
+            <ol class="flex items-center gap-2 text-sm text-gray-500">
+                <li><a href="../" class="hover:text-gray-300 transition-colors">Odo</a></li>
+                <li aria-hidden="true" class="text-gray-700">/</li>
+                <li class="text-gray-400" aria-current="page">Support</li>
+            </ol>
+        </nav>
+
+        <!-- Intro + form -->
+        <section class="pt-8 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5">Get in touch</h1>
+                <p class="text-gray-400 text-lg leading-relaxed mb-3 max-w-2xl">
+                    Something broken, something confusing, or something Odo should do and doesn't?
+                    Send it here &mdash; a human reads every message, and we reply to the address you give us.
+                </p>
+                <p class="text-gray-500 mb-12 max-w-2xl">
+                    Odo has no accounts and no server, so there is nothing for us to look up on our side.
+                    The more you can tell us about what you tapped and what happened, the faster this goes.
+                </p>
+
+                <div class="glass-card rounded-[2rem] p-8 md:p-12 transition-all duration-300">
+                    <form id="support-form" novalidate>
+                        <div class="space-y-5">
+                            <div>
+                                <label class="field-label" for="name">Your name *</label>
+                                <input class="field-input" type="text" id="name" name="name"
+                                       autocomplete="name" required maxlength="80" placeholder="Your name">
+                            </div>
+
+                            <div>
+                                <label class="field-label" for="email">Email *</label>
+                                <input class="field-input" type="email" id="email" name="email"
+                                       autocomplete="email" required maxlength="200" placeholder="you@example.com">
+                                <span class="field-hint">So we can reply. Never shared, never added to a list.</span>
+                            </div>
+
+                            <div>
+                                <label class="field-label" for="category">What's this about? *</label>
+                                <select class="field-input" id="category" name="category" required>
+                                    <option value="" disabled selected>Choose a category&hellip;</option>
+                                    <option value="bug">Something is broken</option>
+                                    <option value="feature">Feature request</option>
+                                    <option value="data">Trips, import or export</option>
+                                    <option value="privacy">Privacy or data question</option>
+                                    <option value="beta">Beta testing</option>
+                                    <option value="other">Something else</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="field-label" for="device">
+                                    Phone and app version <span class="text-gray-500">(optional)</span>
+                                </label>
+                                <input class="field-input" type="text" id="device" name="device"
+                                       maxlength="120" placeholder="e.g. Pixel 7, Android 15, Odo 26.08.6">
+                                <span class="field-hint">Settings &rarr; About shows the version. Helps a lot on bug reports.</span>
+                            </div>
+
+                            <div>
+                                <label class="field-label" for="message">Message *</label>
+                                <textarea class="field-input" id="message" name="message" rows="7"
+                                          required minlength="10" maxlength="5000"
+                                          placeholder="What were you doing, what did you expect, and what happened instead?"></textarea>
+                                <span class="field-hint">Max 5000 characters.</span>
+                            </div>
+
+                            <!-- Honeypot: real users leave this empty; bots tend to fill every field -->
+                            <div class="field-honeypot" aria-hidden="true">
+                                <label for="company">Company</label>
+                                <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <button class="w-full btn-primary text-white font-semibold px-6 py-4 rounded-xl text-lg mt-8"
+                                id="submit-btn" type="submit">
+                            Send message
+                        </button>
+
+                        <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+                    </form>
+                </div>
+
+                <p class="text-gray-500 text-sm mt-8">
+                    Prefer plain email? Write to
+                    <a href="mailto:hello@neuera.app" class="text-primary-400 hover:text-primary-300 underline underline-offset-2">hello@neuera.app</a>.
+                    We aim to reply within two business days.
+                </p>
+            </div>
+        </section>
+
+        <!-- Answers before you write -->
+        <section class="pb-24 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="glass-card rounded-[2rem] p-8 md:p-12 transition-all duration-300">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-3">Answers before you write</h2>
+                    <p class="text-gray-500 mb-6">The four things support gets asked most.</p>
+
+                    <div>
+                        <details class="faq-item">
+                            <summary class="faq-q">I lost my data / changed phone. Can you restore it?</summary>
+                            <div class="faq-a">
+                                <p>
+                                    We can't, and we want to be straight about why: Odo stores everything in a
+                                    database on your phone and has no server, so there is no copy of your trips
+                                    anywhere except the device. That is the same property that means we never see
+                                    your data &mdash; it cuts both ways.
+                                </p>
+                                <p>
+                                    Export a CSV before you switch phones, and import it when you add the vehicle
+                                    on the new one. Uninstalling the app deletes the database.
+                                </p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">My CSV import put the dates in the wrong order.</summary>
+                            <div class="faq-a">
+                                <p>
+                                    The import step has a date-format override for MM/DD versus DD/MM &mdash; set it
+                                    before confirming and the preview will show the corrected dates. If the preview
+                                    still looks wrong, send us the first few lines of the file and we'll tell you
+                                    what it's tripping on.
+                                </p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">Odo rejected my odometer reading.</summary>
+                            <div class="faq-a">
+                                <p>
+                                    That's the backdating guard: an entry that would make the vehicle's mileage run
+                                    backwards in time is refused, because a log that does that is worse than no log
+                                    if anyone ever reviews it. Check the date on the entry and the reading against
+                                    the trips either side of it.
+                                </p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">How do I request deletion of my personal data?</summary>
+                            <div class="faq-a">
+                                <p>
+                                    Uninstalling Odo deletes it &mdash; there is nothing held on our side to delete.
+                                    If you signed up for the beta list with your email, write to us using the
+                                    Privacy category above and we'll remove you from it. The full detail is in the
+                                    <a href="https://legal.neuera.app/odometer/privacy/">privacy policy</a>.
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="text-gray-500 mt-8">
+                        More general questions are answered on the
+                        <a href="../#faq" class="text-primary-400 hover:text-primary-300 underline underline-offset-2">home page FAQ</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pt-16 pb-10 px-6 border-t border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid gap-10 md:grid-cols-4 mb-12">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="../assets/icon-192.png" alt="" width="32" height="32" class="w-8 h-8 rounded-lg" loading="lazy">
+                        <span class="text-lg font-extrabold tracking-tight">Odo</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+                        A simple mileage log for people who drive for work. Paper simplicity,
+                        app organization.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">Product</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="../#features" class="text-gray-500 hover:text-gray-300 transition-colors">Features</a></li>
+                        <li><a href="../#how" class="text-gray-500 hover:text-gray-300 transition-colors">How it works</a></li>
+                        <li><a href="../#faq" class="text-gray-500 hover:text-gray-300 transition-colors">FAQ</a></li>
+                        <li><a href="../#join" class="text-gray-500 hover:text-gray-300 transition-colors">Join the beta</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">Guides</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="../mileage-log-for-taxes/" class="text-gray-500 hover:text-gray-300 transition-colors">Mileage log for taxes</a></li>
+                        <li><a href="../mileage-tracker-without-gps/" class="text-gray-500 hover:text-gray-300 transition-colors">Tracker without GPS</a></li>
+                        <li><a href="../mileage-log-for-rideshare-drivers/" class="text-gray-500 hover:text-gray-300 transition-colors">For rideshare drivers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">Company</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="./" class="text-gray-500 hover:text-gray-300 transition-colors">Support</a></li>
+                        <li><a href="https://legal.neuera.app/odometer/privacy/" class="text-gray-500 hover:text-gray-300 transition-colors">Privacy policy</a></li>
+                        <li><a href="https://legal.neuera.app/odometer/terms/" class="text-gray-500 hover:text-gray-300 transition-colors">Terms of service</a></li>
+                        <li><a href="mailto:hello@neuera.app" class="text-gray-500 hover:text-gray-300 transition-colors">hello@neuera.app</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-8 space-y-4">
+                <p class="text-gray-600 text-xs leading-relaxed">
+                    Google Play and the Google Play logo are trademarks of Google LLC.
+                    Android&trade; is a trademark of Google LLC.
+                    Odo is not affiliated with, or endorsed by, the IRS or any other tax authority
+                    &mdash; check the current mileage rate and record-keeping rules for your country
+                    before filing.
+                </p>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-gray-600">
+                    <p>&copy; 2026 NeuEra Apps LLC &middot; Odo is a product of NeuEra</p>
+                    <p>
+                        <a href="https://reddit.com/u/rustteen" target="_blank" rel="noopener noreferrer" class="hover:text-gray-400 transition-colors">Reddit</a>
+                        &middot; odometer.pro
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * Support form submission.
+         *
+         * Same mechanism as the Kalum and Play Lounge support forms: a JSON POST
+         * to the shared NeuEra n8n endpoint, with the sending app identified by
+         * the `app` field. Odo's tag is "odometer".
+         */
+        (function () {
+            const WEBHOOK_URL = 'https://n8n.neuera.app/webhook/support-playlounge';
+            const APP_TAG = 'odometer';
+
+            const form = document.getElementById('support-form');
+            const btn = document.getElementById('submit-btn');
+            const statusEl = document.getElementById('form-status');
+            if (!form || !btn || !statusEl) return;
+
+            function showStatus(kind, text) {
+                statusEl.textContent = text;
+                statusEl.classList.remove('form-status--ok', 'form-status--err');
+                statusEl.classList.add('form-status--show', kind === 'ok' ? 'form-status--ok' : 'form-status--err');
+            }
+
+            function validEmail(s) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+            }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                statusEl.classList.remove('form-status--show');
+
+                const data = new FormData(form);
+                const payload = {
+                    app: APP_TAG,
+                    name: (data.get('name') || '').toString().trim(),
+                    email: (data.get('email') || '').toString().trim(),
+                    category: (data.get('category') || '').toString(),
+                    device: (data.get('device') || '').toString().trim(),
+                    message: (data.get('message') || '').toString().trim(),
+                    honeypot: (data.get('company') || '').toString(),
+                    userAgent: navigator.userAgent,
+                    timestamp: new Date().toISOString()
+                };
+
+                if (!payload.name || !payload.email || !payload.category || !payload.message) {
+                    showStatus('err', 'Please fill in every required field.');
+                    return;
+                }
+                if (!validEmail(payload.email)) {
+                    showStatus('err', 'That email address doesn\'t look right.');
+                    return;
+                }
+                if (payload.message.length < 10) {
+                    showStatus('err', 'Please add a little more detail so we can help.');
+                    return;
+                }
+
+                btn.disabled = true;
+                btn.setAttribute('aria-disabled', 'true');
+                btn.textContent = 'Sending…';
+
+                try {
+                    const res = await fetch(WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    form.reset();
+                    showStatus('ok', 'Thanks — your message landed. We\'ll reply to ' + payload.email + '.');
+                } catch (err) {
+                    showStatus('err', 'Something went wrong sending your message. Please try again, or email hello@neuera.app directly.');
+                } finally {
+                    btn.disabled = false;
+                    btn.removeAttribute('aria-disabled');
+                    btn.textContent = 'Send message';
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>

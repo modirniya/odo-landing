@@ -1,0 +1,193 @@
+<!--meta
+{
+  "slug": "mileage-log-for-rideshare-drivers",
+  "breadcrumb": "For rideshare and delivery drivers",
+  "heading": "Mileage logs for rideshare and delivery drivers",
+  "title": "Mileage Log for Rideshare & Delivery Drivers — Odo",
+  "description": "The miles your driving app reports are not the miles you drove. Here is what gets left out, why it matters at tax time, and how to capture the whole shift with two odometer readings.",
+  "published": "2026-08-25",
+  "faq": [
+    {
+      "q": "Are the miles in my driving app the same as my deductible miles?",
+      "a": "Usually not. Platforms typically report the distance of the trips they dispatched to you. Driving to your starting area, waiting and repositioning between requests, and driving home at the end of the shift are all real business miles that the platform has no reason to count."
+    },
+    {
+      "q": "How do I log miles when I drive for two apps in one shift?",
+      "a": "Log the shift, not the platform. One odometer reading when you start driving for work and one when you stop captures every mile in between, regardless of which app dispatched which order. Note the platforms in the trip note if you need the split later."
+    },
+    {
+      "q": "Do I need a separate mileage log if the platform already sends me a summary?",
+      "a": "Keeping your own log is the safer position. The platform summary is a report about its own dispatches, not a record you control, and it will not include the between-request driving. Your log is also the thing that survives losing access to that account."
+    },
+    {
+      "q": "What is the simplest way to log a full driving shift?",
+      "a": "Two numbers. Read the odometer before you pull away and again when you finish, mark the trip business, and put the platforms and area in the note. The whole shift becomes one accurate line instead of forty guessed ones."
+    },
+    {
+      "q": "Should I track expenses as well as mileage?",
+      "a": "Track both while you decide. Some drivers come out ahead on a flat per-mile rate and others on the share of actual vehicle costs, and you cannot compare the two without having logged fuel, tolls, parking, car washes and maintenance alongside the distance."
+    }
+  ]
+}
+-->
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" class="max-w-3xl mx-auto px-6 pt-10">
+            <ol class="flex items-center gap-2 text-sm text-gray-500">
+                <li><a href="{{BASE}}" class="hover:text-gray-300 transition-colors">Odo</a></li>
+                <li aria-hidden="true" class="text-gray-700">/</li>
+                <li class="text-gray-400" aria-current="page">For rideshare and delivery drivers</li>
+            </ol>
+        </nav>
+
+        <article class="pt-8 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+                    Mileage logs for rideshare and delivery drivers
+                </h1>
+                <p class="text-gray-400 text-xl leading-relaxed mb-12 max-w-2xl">
+                    The number in your driving app is not the number you drove. The gap is made of
+                    the least glamorous miles of the shift, and they are usually deductible.
+                </p>
+
+                <div class="glass-card rounded-[2rem] p-8 md:p-12 prose-odo">
+                    <h2>What the platform doesn't count</h2>
+                    <p>
+                        A driving platform reports on the thing it can see: the trips it dispatched to
+                        you. That is a genuine record, but it is a record of <em>its</em> business, not
+                        yours. A normal shift contains a lot of driving that never appears in it:
+                    </p>
+                    <ul>
+                        <li>The drive from home to wherever you actually start working.</li>
+                        <li>Repositioning between requests &mdash; circling, moving to a busier area, driving back from a drop-off in the wrong direction.</li>
+                        <li>Waiting time spent moving rather than parked.</li>
+                        <li>The drive home at the end of the shift.</li>
+                        <li>Anything you drove while the app was open but no order was active.</li>
+                    </ul>
+                    <p>
+                        Depending on how you drive, that can be a substantial share of the distance the
+                        vehicle covered. Rules on which of those miles qualify differ by country and by
+                        your circumstances &mdash; the point is that you cannot claim what you never
+                        recorded, and the platform summary alone will not have recorded it.
+                    </p>
+
+                    <h2>Multi-apping breaks per-platform logs</h2>
+                    <p>
+                        If you run two or three apps at once, per-platform mileage reports stop making
+                        sense. The same mile gets claimed by one app, ignored by another, and double
+                        counted if you add the summaries together. Reconciling them at the end of the
+                        year is not a good use of an evening.
+                    </p>
+                    <p>
+                        The fix is to stop logging per platform and start logging per shift. You drove
+                        one car, on one continuous stretch of road, for work. One reading when you pull
+                        away and one when you finish captures all of it exactly once, whoever dispatched
+                        what in the middle.
+                    </p>
+
+                    <h2>The two-number shift log</h2>
+                    <p>
+                        This is the whole workflow, and it is why <a href="{{BASE}}">Odo</a> does not try to
+                        detect anything automatically:
+                    </p>
+                    <ul>
+                        <li><strong>Before you pull away</strong> &mdash; open Odo, enter the odometer reading as the start.</li>
+                        <li><strong>When you finish</strong> &mdash; enter the reading as the end. The distance calculates itself.</li>
+                        <li><strong>Tap business</strong>, and put the platforms and the area you worked in the note.</li>
+                        <li><strong>Fuel up on the way home?</strong> Log it as an expense against the same vehicle, with the volume and the odometer reading.</li>
+                    </ul>
+                    <p>
+                        One line per shift, accurate to the vehicle's own instrument, entered in the ten
+                        seconds you were sitting in the car anyway. Forty guessed entries reconstructed
+                        in April is the alternative, and it is worse in every way that matters.
+                    </p>
+
+                    <h2>Track costs at the same time</h2>
+                    <p>
+                        High-mileage drivers often have a real decision to make between claiming a flat
+                        per-mile rate and claiming the business share of what the vehicle actually cost.
+                        You cannot compare those two without a year of both numbers.
+                    </p>
+                    <p>
+                        Odo keeps expenses next to the trips, under fuel, tolls, parking, maintenance,
+                        car wash or other, on the same vehicle. When you export, the CSV carries both and
+                        the PDF works the deduction at whatever rate you set, so the comparison is a
+                        spreadsheet away rather than a year of missing data away.
+                    </p>
+
+                    <h2>Keep your own copy</h2>
+                    <p>
+                        One more reason not to lean on the platform's summary: it lives in an account you
+                        do not control. Deactivations happen, apps change what they expose, and a
+                        year-end report you can no longer download is not a record.
+                    </p>
+                    <p>
+                        Odo's data sits on your phone, and the export is a plain CSV or PDF you file
+                        wherever you keep the rest of the year's paperwork. Nobody can withdraw your
+                        access to it &mdash; which also means nobody can restore it for you, so export
+                        before you change phones.
+                    </p>
+                </div>
+
+                <!-- FAQ -->
+                <div class="glass-card rounded-[2rem] p-8 md:p-12 mt-10">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-8">Common questions</h2>
+                    <div>
+                        <details class="faq-item">
+                            <summary class="faq-q">Are the miles in my driving app the same as my deductible miles?</summary>
+                            <div class="faq-a">
+                                <p>Usually not. Platforms typically report the distance of the trips they dispatched to you. Driving to your starting area, waiting and repositioning between requests, and driving home at the end of the shift are all real business miles that the platform has no reason to count.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">How do I log miles when I drive for two apps in one shift?</summary>
+                            <div class="faq-a">
+                                <p>Log the shift, not the platform. One odometer reading when you start driving for work and one when you stop captures every mile in between, regardless of which app dispatched which order. Note the platforms in the trip note if you need the split later.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">Do I need a separate mileage log if the platform already sends me a summary?</summary>
+                            <div class="faq-a">
+                                <p>Keeping your own log is the safer position. The platform summary is a report about its own dispatches, not a record you control, and it will not include the between-request driving. Your log is also the thing that survives losing access to that account.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">What is the simplest way to log a full driving shift?</summary>
+                            <div class="faq-a">
+                                <p>Two numbers. Read the odometer before you pull away and again when you finish, mark the trip business, and put the platforms and area in the note. The whole shift becomes one accurate line instead of forty guessed ones.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">Should I track expenses as well as mileage?</summary>
+                            <div class="faq-a">
+                                <p>Track both while you decide. Some drivers come out ahead on a flat per-mile rate and others on the share of actual vehicle costs, and you cannot compare the two without having logged fuel, tolls, parking, car washes and maintenance alongside the distance.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="glass-card rounded-[2rem] p-8 md:p-12 mt-10 text-center">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">Log the whole shift, not the dispatches</h2>
+                    <p class="text-gray-400 mb-8 max-w-xl mx-auto">
+                        Free, no ads, no account, works with no signal.
+                        Android beta is open now.
+                    </p>
+                    <a href="{{BASE}}#join" class="inline-flex items-center gap-3 btn-primary text-white font-semibold px-8 py-4 rounded-full">
+                        Join the Android beta
+                    </a>
+                </div>
+
+                <p class="text-gray-600 text-sm mt-10 leading-relaxed">
+                    This page is general information about record-keeping, not tax advice. Which miles
+                    qualify, and at what rate, differs by country and by your circumstances &mdash;
+                    check what your own tax authority currently publishes, and talk to an accountant
+                    about your situation.
+                </p>
+
+                <p class="text-gray-500 text-sm mt-6">
+                    Related: <a href="{{BASE}}mileage-log-for-taxes/" class="text-primary-400 hover:text-primary-300 underline underline-offset-2">how to keep a mileage log for taxes</a>
+                    &middot;
+                    <a href="{{BASE}}mileage-tracker-without-gps/" class="text-primary-400 hover:text-primary-300 underline underline-offset-2">why we built a mileage tracker without GPS</a>
+                </p>
+            </div>
+        </article>

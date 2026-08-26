@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Canonical, indexable URLs only. /404.html is noindex and excluded, and the
+  legal pages live on legal.neuera.app so they are listed in that site's
+  sitemap, not this one.
+
+  lastmod is per page and hand-maintained: bump a date when that page's own
+  content meaningfully changes, not on every deploy. A sitemap that restamps
+  everything on every push tells crawlers nothing.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://odometer.pro/</loc>
+    <lastmod>2026-08-25</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://odometer.pro/support/</loc>
+    <lastmod>2026-08-25</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://odometer.pro/mileage-log-for-taxes/</loc>
+    <lastmod>2026-08-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://odometer.pro/mileage-tracker-without-gps/</loc>
+    <lastmod>2026-08-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://odometer.pro/mileage-log-for-rideshare-drivers/</loc>
+    <lastmod>2026-08-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+</urlset>

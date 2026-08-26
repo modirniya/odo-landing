@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <meta name="robots" content="{{ROBOTS}}">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="canonical" href="{{CANONICAL}}">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{BASE}}assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{BASE}}assets/icon-192.png">
+    <link rel="apple-touch-icon" href="{{BASE}}assets/apple-touch-icon.png">
+
+    <!-- Fonts: self-hosted Inter. 400/800 render above the fold. -->
+    <link rel="preload" href="{{BASE}}assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{BASE}}assets/fonts/inter-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Compiled Tailwind + site styles (npm run build) -->
+    <link rel="stylesheet" href="{{BASE}}assets/site.css">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Odo">
+    <meta property="og:url" content="{{CANONICAL}}">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:image" content="https://odometer.pro/assets/og-default.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Odo — simple mileage tracking, showing the monthly mileage and expense summary">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{TITLE}}">
+    <meta name="twitter:description" content="{{DESCRIPTION}}">
+    <meta name="twitter:image" content="https://odometer.pro/assets/og-default.png">
+
+{{JSONLD}}
+</head>
+<body class="gradient-bg font-sans text-white">
+    <!-- Background Effects -->
+    <div class="bg-effects"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+            <a href="{{BASE}}" class="flex items-center gap-3 flex-shrink-0" aria-label="Odo home">
+                <img src="{{BASE}}assets/icon-192.png" alt="" width="32" height="32" class="w-8 h-8 rounded-lg">
+                <span class="text-lg font-extrabold tracking-tight">Odo</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="{{BASE}}#features" class="hover:text-white transition-colors">Features</a>
+                <a href="{{BASE}}#how" class="hover:text-white transition-colors">How it works</a>
+                <a href="{{BASE}}#faq" class="hover:text-white transition-colors">FAQ</a>
+                <a href="{{BASE}}support/" class="hover:text-white transition-colors">Support</a>
+            </nav>
+
+            <a href="{{BASE}}#join" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full flex-shrink-0">
+                Join the beta
+            </a>
+        </div>
+    </header>
+
+    <main>
+{{BODY}}
+    </main>
+
+    <!-- Footer -->
+    <footer class="pt-16 pb-10 px-6 border-t border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid gap-10 md:grid-cols-4 mb-12">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="{{BASE}}assets/icon-192.png" alt="" width="32" height="32" class="w-8 h-8 rounded-lg" loading="lazy">
+                        <span class="text-lg font-extrabold tracking-tight">Odo</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+                        A simple mileage log for people who drive for work. Paper simplicity,
+                        app organization.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">Product</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="{{BASE}}#features" class="text-gray-500 hover:text-gray-300 transition-colors">Features</a></li>
+                        <li><a href="{{BASE}}#how" class="text-gray-500 hover:text-gray-300 transition-colors">How it works</a></li>
+                        <li><a href="{{BASE}}#faq" class="text-gray-500 hover:text-gray-300 transition-colors">FAQ</a></li>
+                        <li><a href="{{BASE}}#join" class="text-gray-500 hover:text-gray-300 transition-colors">Join the beta</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">Guides</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="{{BASE}}mileage-log-for-taxes/" class="text-gray-500 hover:text-gray-300 transition-colors">Mileage log for taxes</a></li>
+                        <li><a href="{{BASE}}mileage-tracker-without-gps/" class="text-gray-500 hover:text-gray-300 transition-colors">Tracker without GPS</a></li>
+                        <li><a href="{{BASE}}mileage-log-for-rideshare-drivers/" class="text-gray-500 hover:text-gray-300 transition-colors">For rideshare drivers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">Company</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="{{BASE}}support/" class="text-gray-500 hover:text-gray-300 transition-colors">Support</a></li>
+                        <li><a href="https://legal.neuera.app/odometer/privacy/" class="text-gray-500 hover:text-gray-300 transition-colors">Privacy policy</a></li>
+                        <li><a href="https://legal.neuera.app/odometer/terms/" class="text-gray-500 hover:text-gray-300 transition-colors">Terms of service</a></li>
+                        <li><a href="mailto:hello@neuera.app" class="text-gray-500 hover:text-gray-300 transition-colors">hello@neuera.app</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-8 space-y-4">
+                <p class="text-gray-600 text-xs leading-relaxed">
+                    Google Play and the Google Play logo are trademarks of Google LLC.
+                    Android&trade; is a trademark of Google LLC.
+                    Odo is not affiliated with, or endorsed by, the IRS or any other tax authority
+                    &mdash; check the current mileage rate and record-keeping rules for your country
+                    before filing.
+                </p>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-gray-600">
+                    <p>&copy; 2026 NeuEra Apps LLC &middot; Odo is a product of NeuEra</p>
+                    <p>
+                        <a href="https://reddit.com/u/rustteen" target="_blank" rel="noopener noreferrer" class="hover:text-gray-400 transition-colors">Reddit</a>
+                        &middot; odometer.pro
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

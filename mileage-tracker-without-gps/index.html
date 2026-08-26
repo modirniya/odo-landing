@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mileage Tracker Without GPS Tracking — Odo</title>
+    <meta name="description" content="Automatic mileage apps cost you battery, log trips you never took, and need location access all day. Here is the case for a manual odometer log, and what you give up by choosing one.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="canonical" href="https://odometer.pro/mileage-tracker-without-gps/">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+    <!-- Fonts: self-hosted Inter. 400/800 render above the fold. -->
+    <link rel="preload" href="../assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/fonts/inter-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Compiled Tailwind + site styles (npm run build) -->
+    <link rel="stylesheet" href="../assets/site.css">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Odo">
+    <meta property="og:url" content="https://odometer.pro/mileage-tracker-without-gps/">
+    <meta property="og:title" content="Mileage Tracker Without GPS Tracking — Odo">
+    <meta property="og:description" content="Automatic mileage apps cost you battery, log trips you never took, and need location access all day. Here is the case for a manual odometer log, and what you give up by choosing one.">
+    <meta property="og:image" content="https://odometer.pro/assets/og-default.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Odo — simple mileage tracking, showing the monthly mileage and expense summary">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mileage Tracker Without GPS Tracking — Odo">
+    <meta name="twitter:description" content="Automatic mileage apps cost you battery, log trips you never took, and need location access all day. Here is the case for a manual odometer log, and what you give up by choosing one.">
+    <meta name="twitter:image" content="https://odometer.pro/assets/og-default.png">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://odometer.pro/mileage-tracker-without-gps/#article",
+      "headline": "A mileage tracker without GPS, on purpose",
+      "description": "Automatic mileage apps cost you battery, log trips you never took, and need location access all day. Here is the case for a manual odometer log, and what you give up by choosing one.",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://odometer.pro/mileage-tracker-without-gps/",
+      "datePublished": "2026-08-25",
+      "dateModified": "2026-08-25",
+      "author": {
+        "@id": "https://odometer.pro/#organization"
+      },
+      "publisher": {
+        "@id": "https://odometer.pro/#organization"
+      },
+      "about": {
+        "@id": "https://odometer.pro/#app"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://odometer.pro/#organization",
+      "name": "NeuEra Apps LLC",
+      "url": "https://odometer.pro/",
+      "logo": "https://odometer.pro/assets/apple-touch-icon.png",
+      "email": "hello@neuera.app"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Odo",
+          "item": "https://odometer.pro/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Mileage tracker without GPS",
+          "item": "https://odometer.pro/mileage-tracker-without-gps/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://odometer.pro/mileage-tracker-without-gps/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why would I want a mileage tracker that does not use GPS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three reasons: nothing runs in the background so your battery is untouched, there are no phantom or misclassified trips to clean up later, and the app never needs permission to watch where you go all day. The trade is that you have to type two numbers per trip."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do automatic mileage trackers drain your battery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Continuous location and motion detection have a real power cost, which is why automatic trackers ask to be excluded from battery optimisation. A manual log has no background component at all, so it costs nothing between trips."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is a manual mileage log less accurate than GPS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is usually more accurate. An odometer reading comes off the vehicle's own instrument, while a GPS trace is an estimate of a path that degrades in tunnels, car parks and cities. What manual logging risks is not precision but completeness — the trip you forget to enter."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Odo use location at all?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if you ask it to, and only as a single snapshot. When you log a trip or an expense you can capture one location reading for context. There is no continuous tracking, no trail, and the app works fully without ever being granted location access."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if I forget to log a trip?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can add it later. Odo prefills the odometer reading the vehicle had on the date you pick, so a backdated entry lands in the right place in the history rather than at the end of it."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+<body class="gradient-bg font-sans text-white">
+    <!-- Background Effects -->
+    <div class="bg-effects"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+            <a href="../" class="flex items-center gap-3 flex-shrink-0" aria-label="Odo home">
+                <img src="../assets/icon-192.png" alt="" width="32" height="32" class="w-8 h-8 rounded-lg">
+                <span class="text-lg font-extrabold tracking-tight">Odo</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="../#features" class="hover:text-white transition-colors">Features</a>
+                <a href="../#how" class="hover:text-white transition-colors">How it works</a>
+                <a href="../#faq" class="hover:text-white transition-colors">FAQ</a>
+                <a href="../support/" class="hover:text-white transition-colors">Support</a>
+            </nav>
+
+            <a href="../#join" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full flex-shrink-0">
+                Join the beta
+            </a>
+        </div>
+    </header>
+
+    <main>
+<!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" class="max-w-3xl mx-auto px-6 pt-10">
+            <ol class="flex items-center gap-2 text-sm text-gray-500">
+                <li><a href="../" class="hover:text-gray-300 transition-colors">Odo</a></li>
+                <li aria-hidden="true" class="text-gray-700">/</li>
+                <li class="text-gray-400" aria-current="page">Mileage tracker without GPS</li>
+            </ol>
+        </nav>
+
+        <article class="pt-8 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+                    A mileage tracker without GPS, on purpose
+                </h1>
+                <p class="text-gray-400 text-xl leading-relaxed mb-12 max-w-2xl">
+                    Every other mileage app leads with automatic trip detection. Odo does not have it,
+                    and that is the feature &mdash; here is the honest version of the trade.
+                </p>
+
+                <div class="glass-card rounded-[2rem] p-8 md:p-12 prose-odo">
+                    <h2>What automatic tracking actually costs</h2>
+                    <p>
+                        An app that notices you started driving has to be watching for it. In practice
+                        that means location access that stays on in the background, motion detection
+                        running all day, and a request to exempt the app from your phone's battery
+                        optimisation &mdash; the request that exists precisely because the feature has a
+                        power cost.
+                    </p>
+                    <p>
+                        Then there is the cleanup. Automatic detection cannot know why you drove, so
+                        every trip arrives unclassified and you swipe through them later deciding which
+                        were work. It also cannot always tell that you drove at all: passengers in
+                        someone else's car, a train journey, a walk that looked like traffic. Those
+                        become trips you have to find and delete.
+                    </p>
+                    <p>
+                        The failure mode is worse than the inconvenience. A log with invented trips in
+                        it is not a log that helps you if anyone ever reviews it.
+                    </p>
+
+                    <h2>The permission you don't have to grant</h2>
+                    <p>
+                        Continuous location is one of the most sensitive permissions on a phone. Granting
+                        it to a mileage app means an app on your device knows where you were all day,
+                        every day, whether or not you were working.
+                    </p>
+                    <p>
+                        Odo does not ask for it. It can capture a <strong>single location snapshot</strong>
+                        when you log a trip or an expense, if you want that context, and it is optional
+                        &mdash; the app works completely without ever being granted location access. One
+                        reading, taken when you press the button. Not a trail.
+                    </p>
+
+                    <h2>Manual is not the same as inaccurate</h2>
+                    <p>
+                        The intuition is that GPS must be more precise than typing. It usually is not.
+                        An odometer reading is what the vehicle's own instrument says. A GPS trace is a
+                        reconstruction from satellite fixes that degrade in exactly the places people
+                        drive for work &mdash; multi-storey car parks, tunnels, dense city blocks &mdash;
+                        and it has to guess at the start and end of every journey.
+                    </p>
+                    <p>
+                        What manual logging genuinely risks is not precision. It is <em>completeness</em>:
+                        the trip you meant to enter and forgot. That is a real cost and it is the honest
+                        one to name.
+                    </p>
+                    <p>
+                        Two things blunt it. First, the entry has to be fast enough to do before you get
+                        out of the car &mdash; two numbers and a tap, which is the whole design of the
+                        logging screen. Second, forgetting has to be recoverable, so backdating in Odo
+                        prefills the reading the vehicle actually had on the date you pick, and refuses
+                        an entry that would make the mileage run backwards in time.
+                    </p>
+
+                    <h2>Who this is wrong for</h2>
+                    <p>
+                        If you make thirty short stops a day and cannot reasonably note each one, an
+                        automatic tracker is the right tool and you should use one. Odo is not trying to
+                        win that case.
+                    </p>
+                    <p>
+                        It is built for the far more common shape: a handful of business trips a week,
+                        a driver who already keeps a notebook in the door pocket, and someone who would
+                        rather type two numbers than hand an app their location history and then audit
+                        its guesses every month.
+                    </p>
+
+                    <h2>What you get instead</h2>
+                    <ul>
+                        <li><strong>Nothing in the background.</strong> No battery cost between trips, because there is no background component.</li>
+                        <li><strong>No phantom trips.</strong> Every line in the log is one you put there.</li>
+                        <li><strong>No account, no server, no sync.</strong> The database lives on your phone.</li>
+                        <li><strong>Works with no signal.</strong> Underground, rural, aeroplane mode &mdash; identical behaviour.</li>
+                        <li><strong>Exports that stand up.</strong> CSV with ISO dates, or a PDF with the deduction at your rate.</li>
+                    </ul>
+                </div>
+
+                <!-- FAQ -->
+                <div class="glass-card rounded-[2rem] p-8 md:p-12 mt-10">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-8">Common questions</h2>
+                    <div>
+                        <details class="faq-item">
+                            <summary class="faq-q">Why would I want a mileage tracker that does not use GPS?</summary>
+                            <div class="faq-a">
+                                <p>Three reasons: nothing runs in the background so your battery is untouched, there are no phantom or misclassified trips to clean up later, and the app never needs permission to watch where you go all day. The trade is that you have to type two numbers per trip.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">Do automatic mileage trackers drain your battery?</summary>
+                            <div class="faq-a">
+                                <p>Continuous location and motion detection have a real power cost, which is why automatic trackers ask to be excluded from battery optimisation. A manual log has no background component at all, so it costs nothing between trips.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">Is a manual mileage log less accurate than GPS?</summary>
+                            <div class="faq-a">
+                                <p>It is usually more accurate. An odometer reading comes off the vehicle's own instrument, while a GPS trace is an estimate of a path that degrades in tunnels, car parks and cities. What manual logging risks is not precision but completeness &mdash; the trip you forget to enter.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">Does Odo use location at all?</summary>
+                            <div class="faq-a">
+                                <p>Only if you ask it to, and only as a single snapshot. When you log a trip or an expense you can capture one location reading for context. There is no continuous tracking, no trail, and the app works fully without ever being granted location access.</p>
+                            </div>
+                        </details>
+                        <details class="faq-item">
+                            <summary class="faq-q">What happens if I forget to log a trip?</summary>
+                            <div class="faq-a">
+                                <p>You can add it later. Odo prefills the odometer reading the vehicle had on the date you pick, so a backdated entry lands in the right place in the history rather than at the end of it.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="glass-card rounded-[2rem] p-8 md:p-12 mt-10 text-center">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">Try the manual version</h2>
+                    <p class="text-gray-400 mb-8 max-w-xl mx-auto">
+                        Free, no ads, no account, no location permission required.
+                        Android beta is open now.
+                    </p>
+                    <a href="../#join" class="inline-flex items-center gap-3 btn-primary text-white font-semibold px-8 py-4 rounded-full">
+                        Join the Android beta
+                    </a>
+                </div>
+
+                <p class="text-gray-500 text-sm mt-10">
+                    Related: <a href="../mileage-log-for-taxes/" class="text-primary-400 hover:text-primary-300 underline underline-offset-2">how to keep a mileage log for taxes</a>
+                    &middot;
+                    <a href="../mileage-log-for-rideshare-drivers/" class="text-primary-400 hover:text-primary-300 underline underline-offset-2">mileage logs for rideshare and delivery drivers</a>
+                </p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pt-16 pb-10 px-6 border-t border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid gap-10 md:grid-cols-4 mb-12">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="../assets/icon-192.png" alt="" width="32" height="32" class="w-8 h-8 rounded-lg" loading="lazy">
+                        <span class="text-lg font-extrabold tracking-tight">Odo</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+                        A simple mileage log for people who drive for work. Paper simplicity,
+                        app organization.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">Product</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="../#features" class="text-gray-500 hover:text-gray-300 transition-colors">Features</a></li>
+                        <li><a href="../#how" class="text-gray-500 hover:text-gray-300 transition-colors">How it works</a></li>
+                        <li><a href="../#faq" class="text-gray-500 hover:text-gray-300 transition-colors">FAQ</a></li>
+                        <li><a href="../#join" class="text-gray-500 hover:text-gray-300 transition-colors">Join the beta</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">Guides</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="../mileage-log-for-taxes/" class="text-gray-500 hover:text-gray-300 transition-colors">Mileage log for taxes</a></li>
+                        <li><a href="../mileage-tracker-without-gps/" class="text-gray-500 hover:text-gray-300 transition-colors">Tracker without GPS</a></li>
+                        <li><a href="../mileage-log-for-rideshare-drivers/" class="text-gray-500 hover:text-gray-300 transition-colors">For rideshare drivers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">Company</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="../support/" class="text-gray-500 hover:text-gray-300 transition-colors">Support</a></li>
+                        <li><a href="https://legal.neuera.app/odometer/privacy/" class="text-gray-500 hover:text-gray-300 transition-colors">Privacy policy</a></li>
+                        <li><a href="https://legal.neuera.app/odometer/terms/" class="text-gray-500 hover:text-gray-300 transition-colors">Terms of service</a></li>
+                        <li><a href="mailto:hello@neuera.app" class="text-gray-500 hover:text-gray-300 transition-colors">hello@neuera.app</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-8 space-y-4">
+                <p class="text-gray-600 text-xs leading-relaxed">
+                    Google Play and the Google Play logo are trademarks of Google LLC.
+                    Android&trade; is a trademark of Google LLC.
+                    Odo is not affiliated with, or endorsed by, the IRS or any other tax authority
+                    &mdash; check the current mileage rate and record-keeping rules for your country
+                    before filing.
+                </p>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-gray-600">
+                    <p>&copy; 2026 NeuEra Apps LLC &middot; Odo is a product of NeuEra</p>
+                    <p>
+                        <a href="https://reddit.com/u/rustteen" target="_blank" rel="noopener noreferrer" class="hover:text-gray-400 transition-colors">Reddit</a>
+                        &middot; odometer.pro
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
