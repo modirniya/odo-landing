@@ -47,10 +47,28 @@
         {
           "@type": "Organization",
           "@id": "https://odometer.pro/#organization",
-          "name": "NeuEra Apps LLC",
+          "name": "Odometer",
+          "legalName": "NeuEra Apps LLC",
           "url": "https://odometer.pro/",
-          "logo": "https://odometer.pro/assets/apple-touch-icon.png",
-          "email": "hello@neuera.app"
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://odometer.pro/assets/icon.png",
+            "width": 512,
+            "height": 512
+          },
+          "email": "hello@neuera.app",
+          "sameAs": [
+            "https://play.google.com/store/apps/details?id=pro.odometer.android"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "hello@neuera.app",
+            "url": "https://odometer.pro/support/",
+            "availableLanguage": [
+              "English"
+            ]
+          }
         },
         {
           "@type": "WebSite",
@@ -71,6 +89,14 @@
           "installUrl": "https://play.google.com/store/apps/details?id=pro.odometer.android",
           "sameAs": ["https://play.google.com/store/apps/details?id=pro.odometer.android"],
           "publisher": { "@id": "https://odometer.pro/#organization" },
+          "screenshot": [
+            {"@type": "ImageObject", "url": "https://odometer.pro/assets/screens/home-640.png", "width": 640, "height": 1391, "caption": "Home screen with monthly mileage and expense summary"},
+            {"@type": "ImageObject", "url": "https://odometer.pro/assets/screens/add-trip-640.png", "width": 640, "height": 1391, "caption": "Add trip with roller odometer input"},
+            {"@type": "ImageObject", "url": "https://odometer.pro/assets/screens/add-expense-640.png", "width": 640, "height": 1391, "caption": "Add expense with category picker"},
+            {"@type": "ImageObject", "url": "https://odometer.pro/assets/screens/export-640.png", "width": 640, "height": 1391, "caption": "CSV and PDF export options"},
+            {"@type": "ImageObject", "url": "https://odometer.pro/assets/screens/vehicles-640.png", "width": 640, "height": 1391, "caption": "Vehicle switcher in the dark theme"},
+            {"@type": "ImageObject", "url": "https://odometer.pro/assets/screens/units-640.png", "width": 640, "height": 1391, "caption": "Units and currency settings"}
+          ],
           "featureList": [
             "Manual odometer trip logging with automatic distance calculation",
             "Business and personal trip classification",

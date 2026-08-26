@@ -29,6 +29,49 @@ const SITE = 'https://odometer.pro'
 // page listing the app. Swap in https://apps.apple.com/app/id<APPLE_ID> once
 // App Store Connect shows it (and update the two copies in index.html).
 export const APP_STORE_URL = 'https://apps.apple.com/us/developer/neuera-apps/id1895216844'
+const PLAY_URL = 'https://play.google.com/store/apps/details?id=pro.odometer.android'
+
+// One Organization, identical on every page. index.html and support/ carry
+// a pasted copy of this object — keep the three in step.
+const ORG = {
+  "@type": "Organization",
+  "@id": "https://odometer.pro/#organization",
+  "name": "Odometer",
+  "legalName": "NeuEra Apps LLC",
+  "url": "https://odometer.pro/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://odometer.pro/assets/icon.png",
+    "width": 512,
+    "height": 512
+  },
+  "email": "hello@neuera.app",
+  "sameAs": [
+    "https://play.google.com/store/apps/details?id=pro.odometer.android"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "email": "hello@neuera.app",
+    "url": "https://odometer.pro/support/",
+    "availableLanguage": [
+      "English"
+    ]
+  }
+}
+
+// Pages other than the home page reference the app by @id; a bare @id that
+// resolves nowhere on the page conveys nothing, so they carry this stub.
+const APP_STUB = {
+  "@type": "MobileApplication",
+  "@id": "https://odometer.pro/#app",
+  "name": "Odometer: Simple Mileage Tracking",
+  "url": "https://odometer.pro/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Android"
+}
+
+const fmtDate = (iso) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
 
 const layout = await readFile(join(ROOT, 'src/layout.html'), 'utf8')
 const files = (await readdir(join(ROOT, 'src/pages'))).filter((f) => f.endsWith('.html')).sort()
@@ -49,7 +92,20 @@ function splitFragment(raw, file) {
   for (const key of ['slug', 'title', 'description']) {
     if (!meta[key]) throw new Error(`${file}: meta is missing "${key}"`)
   }
-  return { meta, body: raw.slice(match[0].length).trimEnd() }
+  if (!meta.noindex && !meta.published) throw new Error(`${file}: indexable pages need "published" (YYYY-MM-DD)`)
+  const body = raw.slice(match[0].length).trimEnd()
+  // Every FAQ entry must exist verbatim in the visible markup — schema with
+  // no visible counterpart is treated as spam. Fail the build on drift.
+  if (meta.faq?.length) {
+    const norm = (s) => s.replace(/<[^>]+>/g, '').replace(/&mdash;/g, '—').replace(/&amp;/g, '&').replace(/&#39;|&apos;/g, "'").replace(/\s+/g, ' ').trim()
+    const summaries = [...body.matchAll(/<summary[^>]*>([\s\S]*?)<\/summary>/g)].map((m) => norm(m[1]))
+    const paras = [...body.matchAll(/<p>([\s\S]*?)<\/p>/g)].map((m) => norm(m[1]))
+    for (const f of meta.faq) {
+      if (!summaries.includes(norm(f.q))) throw new Error(`${file}: FAQ question not in body: ${f.q}`)
+      if (!paras.some((p) => p.includes(norm(f.a)))) throw new Error(`${file}: FAQ answer not in body: ${f.q}`)
+    }
+  }
+  return { meta, body }
 }
 
 /**
@@ -66,20 +122,15 @@ function structuredData(meta, canonical) {
       description: meta.description,
       inLanguage: 'en',
       mainEntityOfPage: canonical,
+      image: { '@type': 'ImageObject', url: `${SITE}/assets/og-default.png`, width: 1200, height: 630 },
       datePublished: meta.published,
       dateModified: meta.modified || meta.published,
-      author: { '@id': `${SITE}/#organization` },
+      author: { '@type': 'Organization', '@id': `${SITE}/#organization`, name: ORG.name },
       publisher: { '@id': `${SITE}/#organization` },
       about: { '@id': `${SITE}/#app` },
     },
-    {
-      '@type': 'Organization',
-      '@id': `${SITE}/#organization`,
-      name: 'NeuEra Apps LLC',
-      url: `${SITE}/`,
-      logo: `${SITE}/assets/apple-touch-icon.png`,
-      email: 'hello@neuera.app',
-    },
+    ORG,
+    APP_STUB,
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
@@ -105,6 +156,23 @@ function structuredData(meta, canonical) {
   return `    <script type="application/ld+json">\n${json}\n    </script>`
 }
 
+/** Visible byline under the h1 — the on-page counterpart of datePublished. */
+function dateline(meta) {
+  const updated = meta.modified && meta.modified !== meta.published
+    ? ` &middot; Updated <time datetime="${meta.modified}">${fmtDate(meta.modified)}</time>`
+    : ''
+  return `<p class="text-sm text-gray-500 mb-8"><time datetime="${meta.published}">Published ${fmtDate(meta.published)}</time>${updated} &middot; by ${ORG.name}</p>`
+}
+
+/** article:* Open Graph properties — Facebook/LinkedIn read these, not JSON-LD. */
+function articleMeta(meta) {
+  return [
+    `    <meta property="article:published_time" content="${meta.published}">`,
+    `    <meta property="article:modified_time" content="${meta.modified || meta.published}">`,
+    `    <meta property="article:author" content="${SITE}/">`,
+  ].join('\n')
+}
+
 let written = 0
 for (const file of files) {
   const raw = await readFile(join(ROOT, 'src/pages', file), 'utf8')
@@ -126,7 +194,10 @@ for (const file of files) {
     .replaceAll('{{ROBOTS}}', meta.noindex ? 'noindex, follow' : 'index,follow,max-image-preview:large')
     .replaceAll('{{JSONLD}}', meta.noindex ? '' : structuredData(meta, canonical))
     .replaceAll('{{OGTYPE}}', meta.ogType || 'article')
+    .replaceAll('{{ARTICLE_META}}', meta.noindex ? '' : articleMeta(meta))
     .replaceAll('{{BODY}}', body)
+    // After BODY — the token lives inside the fragment.
+    .replaceAll('{{DATELINE}}', meta.published ? dateline(meta) : '')
     .replaceAll('{{APP_STORE_URL}}', APP_STORE_URL)
     // Play referrer campaign is per page so Play Console shows which guide
     // produced the install.

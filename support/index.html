@@ -56,16 +56,36 @@
         {
           "@type": "Organization",
           "@id": "https://odometer.pro/#organization",
-          "name": "NeuEra Apps LLC",
+          "name": "Odometer",
+          "legalName": "NeuEra Apps LLC",
           "url": "https://odometer.pro/",
-          "logo": "https://odometer.pro/assets/apple-touch-icon.png",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://odometer.pro/assets/icon.png",
+            "width": 512,
+            "height": 512
+          },
+          "email": "hello@neuera.app",
+          "sameAs": [
+            "https://play.google.com/store/apps/details?id=pro.odometer.android"
+          ],
           "contactPoint": {
             "@type": "ContactPoint",
-            "contactType": "customer support",
+            "contactType": "customer service",
             "email": "hello@neuera.app",
             "url": "https://odometer.pro/support/",
-            "availableLanguage": ["English"]
+            "availableLanguage": [
+              "English"
+            ]
           }
+        },
+        {
+          "@type": "MobileApplication",
+          "@id": "https://odometer.pro/#app",
+          "name": "Odometer: Simple Mileage Tracking",
+          "url": "https://odometer.pro/",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Android"
         },
         {
           "@type": "BreadcrumbList",
