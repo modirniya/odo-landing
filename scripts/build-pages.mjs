@@ -24,7 +24,7 @@ import { fileURLToPath } from 'node:url'
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://odometer.pro'
 
-// Store links. The App Store href is the NeuEra developer page until Odo's
+// Store links. The App Store href is the NeuEra developer page until Odometer's
 // own listing is live — a badge that 404s is worse than one that lands on a
 // page listing the app. Swap in https://apps.apple.com/app/id<APPLE_ID> once
 // App Store Connect shows it (and update the two copies in index.html).
@@ -80,7 +80,7 @@ function structuredData(meta, canonical) {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Odo', item: `${SITE}/` },
+        { '@type': 'ListItem', position: 1, name: 'Odometer', item: `${SITE}/` },
         { '@type': 'ListItem', position: 2, name: meta.breadcrumb || meta.heading || meta.title, item: canonical },
       ],
     },

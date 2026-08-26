@@ -1,6 +1,6 @@
-# Odo Landing Page
+# Odometer Landing Page
 
-Marketing site for **Odo: Simple Mileage Tracking**, live at
+Marketing site for **Odometer: Simple Mileage Tracking**, live at
 [odometer.pro](https://odometer.pro/). Static HTML on GitHub Pages, deployed from
 `main` at the repo root.
 
@@ -53,7 +53,7 @@ assets/                             images, fonts, compiled CSS
    <!--meta
    {
      "slug": "my-page",
-     "title": "Page title — Odo",
+     "title": "Page title — Odometer",
      "description": "Meta description.",
      "heading": "H1 text",
      "breadcrumb": "Short label",
@@ -89,7 +89,7 @@ three.
   `&referrer=utm_source%3Dodometer.pro%26utm_medium%3Dweb%26utm_campaign%3D<placement>`
   so Play Console attributes the install. A bare listing URL reports as organic
   and makes the site unmeasurable.
-- **The App Store badge points at the NeuEra developer page** until Odo's own
+- **The App Store badge points at the NeuEra developer page** until Odometer's own
   listing is live. The URL is `APP_STORE_URL` in `scripts/build-pages.mjs`
   (feeds the guide pages) and appears twice in `index.html` (hero, download
   section). When App Store Connect shows the Apple ID, swap all three to
@@ -114,14 +114,14 @@ Kalum and Play Lounge use. The sending app is identified by the `app` field:
 ```
 POST https://n8n.neuera.app/webhook/support-playlounge
 {
-  "app": "odometer",          // <- Odo's tag
+  "app": "odometer",          // <- Odometer's tag
   "name", "email", "category", "device", "message",
   "honeypot", "userAgent", "timestamp"
 }
 ```
 
 The endpoint is named after the first app that used it; the `app` field is what
-routes it. If Odo ever needs its own webhook, change `WEBHOOK_URL` and `APP_TAG`
+routes it. If Odometer ever needs its own webhook, change `WEBHOOK_URL` and `APP_TAG`
 together at the bottom of `support/index.html`.
 
 ## Known gaps
