@@ -4,7 +4,8 @@
   "private": true,
   "description": "Landing page for Odo: Simple Mileage Tracking (odometer.pro)",
   "scripts": {
-    "build": "npm run build:pages && npm run build:css",
+    "build": "npm run sync:legal && npm run build:pages && npm run build:css",
+    "sync:legal": "node scripts/fetch-legal.mjs",
     "build:pages": "node scripts/build-pages.mjs",
     "build:css": "tailwindcss -i ./src/input.css -o ./assets/site.css --minify",
     "dev": "tailwindcss -i ./src/input.css -o ./assets/site.css --watch",

@@ -17,7 +17,8 @@ npm run serve      # http://localhost:4173
 
 | Script | What it does |
 | --- | --- |
-| `npm run build` | `build:pages` then `build:css` — always in that order |
+| `npm run build` | `sync:legal`, then `build:pages`, then `build:css` — in that order |
+| `npm run sync:legal` | Mirrors the privacy policy and terms from legal.neuera.app into `src/pages/` |
 | `npm run build:pages` | Wraps `src/pages/*.html` in `src/layout.html`, writes the output |
 | `npm run build:css` | Compiles `src/input.css` to `assets/site.css` (minified) |
 | `npm run dev` | Tailwind in watch mode |
@@ -31,7 +32,8 @@ committed after any change to `src/`. Run `npm run build` before you push.
 ```
 index.html                          hand-written — the home page
 support/index.html                  hand-written — the app-store support page
-privacy.html                        redirect stub -> legal.neuera.app
+privacy.html                        redirect stub -> /privacy/ (old URL)
+privacy/, terms/                    generated — mirrored from legal.neuera.app
 404.html                            generated
 mileage-log-for-taxes/              generated
 mileage-tracker-without-gps/        generated
@@ -80,11 +82,14 @@ three.
 
 ## Conventions worth keeping
 
-- **Legal pages are not hosted here.** Privacy and terms live on
-  `legal.neuera.app/odometer/`, which is versioned and archived. `privacy.html`
-  is only a redirect stub for the Play Store listing and older inbound links.
-  Do not reintroduce a local copy — the last one drifted (stale date, wrong
-  contact address).
+- **Legal pages are mirrored, not authored here.** `/privacy/` and `/terms/` are
+  built from `src/pages/{privacy,terms}.html`, which `scripts/fetch-legal.mjs`
+  regenerates from `legal.neuera.app/odometer/…` on every build (same mechanism
+  as Kalum and Play Lounge). The text is copied verbatim; the pages canonicalize
+  back to legal.neuera.app, which stays the source of truth and archives every
+  version. They are deliberately not in `sitemap.xml`. Never hand-edit the
+  fragments — edit the document on legal.neuera.app and rebuild. If the fetch
+  fails, the build keeps the last synced copy and says so.
 - **Play Store links carry an install referrer.** Every store link ships
   `&referrer=utm_source%3Dodometer.pro%26utm_medium%3Dweb%26utm_campaign%3D<placement>`
   so Play Console attributes the install. A bare listing URL reports as organic

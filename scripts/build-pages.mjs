@@ -92,7 +92,7 @@ function splitFragment(raw, file) {
   for (const key of ['slug', 'title', 'description']) {
     if (!meta[key]) throw new Error(`${file}: meta is missing "${key}"`)
   }
-  if (!meta.noindex && !meta.published) throw new Error(`${file}: indexable pages need "published" (YYYY-MM-DD)`)
+  if (!meta.noindex && meta.jsonld !== 'minimal' && !meta.published) throw new Error(`${file}: indexable pages need "published" (YYYY-MM-DD)`)
   const body = raw.slice(match[0].length).trimEnd()
   // Every FAQ entry must exist verbatim in the visible markup — schema with
   // no visible counterpart is treated as spam. Fail the build on drift.
@@ -114,6 +114,19 @@ function splitFragment(raw, file) {
  * (Google treats schema with no visible counterpart as spam).
  */
 function structuredData(meta, canonical) {
+  const crumbs = {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Odometer', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: meta.breadcrumb || meta.heading || meta.title, item: canonical },
+    ],
+  }
+  // Mirrored legal documents are not Articles of ours — just the entity and
+  // a breadcrumb.
+  if (meta.jsonld === 'minimal') {
+    const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': [ORG, crumbs] }, null, 2)
+    return `    <script type="application/ld+json">\n${json}\n    </script>`
+  }
   const graph = [
     {
       '@type': 'Article',
@@ -131,13 +144,7 @@ function structuredData(meta, canonical) {
     },
     ORG,
     APP_STUB,
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Odometer', item: `${SITE}/` },
-        { '@type': 'ListItem', position: 2, name: meta.breadcrumb || meta.heading || meta.title, item: canonical },
-      ],
-    },
+    crumbs,
   ]
 
   if (meta.faq?.length) {
@@ -185,32 +192,38 @@ for (const file of files) {
   // 404.html is served in place of ANY missing path, so its links have to be
   // root-absolute — a relative href from /a/b/typo would resolve into /a/b/.
   const base = isRoot ? '/' : '../'
-  const canonical = isRoot ? `${SITE}/404.html` : `${SITE}/${meta.slug}/`
+  const pageUrl = isRoot ? `${SITE}/404.html` : `${SITE}/${meta.slug}/`
+  // A page may canonicalize elsewhere (the mirrored legal documents point at
+  // legal.neuera.app); og:url and the breadcrumb still name this page.
+  const canonical = meta.canonical || pageUrl
 
   const html = layout
-    .replaceAll('{{TITLE}}', esc(meta.title))
-    .replaceAll('{{DESCRIPTION}}', esc(meta.description))
-    .replaceAll('{{CANONICAL}}', canonical)
-    .replaceAll('{{ROBOTS}}', meta.noindex ? 'noindex, follow' : 'index,follow,max-image-preview:large')
-    .replaceAll('{{JSONLD}}', meta.noindex ? '' : structuredData(meta, canonical))
-    .replaceAll('{{OGTYPE}}', meta.ogType || 'article')
-    .replaceAll('{{ARTICLE_META}}', meta.noindex ? '' : articleMeta(meta))
-    .replaceAll('{{BODY}}', body)
+    // Function-form replacements: a "$&" or "$'" inside injected text (legal
+    // prose can contain "$") must never be read as a replacement pattern.
+    .replaceAll('{{TITLE}}', () => esc(meta.title))
+    .replaceAll('{{DESCRIPTION}}', () => esc(meta.description))
+    .replaceAll('{{CANONICAL}}', () => canonical)
+    .replaceAll('{{PAGE_URL}}', () => pageUrl)
+    .replaceAll('{{ROBOTS}}', () => (meta.noindex ? 'noindex, follow' : 'index,follow,max-image-preview:large'))
+    .replaceAll('{{JSONLD}}', () => (meta.noindex ? '' : structuredData(meta, pageUrl)))
+    .replaceAll('{{OGTYPE}}', () => meta.ogType || 'article')
+    .replaceAll('{{ARTICLE_META}}', () => (meta.noindex || !meta.published ? '' : articleMeta(meta)))
+    .replaceAll('{{BODY}}', () => body)
     // After BODY — the token lives inside the fragment.
-    .replaceAll('{{DATELINE}}', meta.published ? dateline(meta) : '')
-    .replaceAll('{{APP_STORE_URL}}', APP_STORE_URL)
+    .replaceAll('{{DATELINE}}', () => (meta.published ? dateline(meta) : ''))
+    .replaceAll('{{APP_STORE_URL}}', () => APP_STORE_URL)
     // Play referrer campaign is per page so Play Console shows which guide
     // produced the install.
-    .replaceAll('{{PLAY_CAMPAIGN}}', `guide_${meta.slug.replaceAll('-', '_')}`)
+    .replaceAll('{{PLAY_CAMPAIGN}}', () => `guide_${meta.slug.replaceAll('-', '_')}`)
     // Last, so a {{BASE}} inside an injected value still resolves.
-    .replaceAll('{{BASE}}', base)
+    .replaceAll('{{BASE}}', () => base)
 
   // A noindex page must not self-canonicalize or claim an og:url — an error
   // page that does is the textbook soft-404 shape.
   const final = meta.noindex
     ? html
         .replace(`    <link rel="canonical" href="${canonical}">\n`, '')
-        .replace(`    <meta property="og:url" content="${canonical}">\n`, '')
+        .replace(`    <meta property="og:url" content="${pageUrl}">\n`, '')
     : html
 
   await mkdir(dirname(outPath), { recursive: true })
