@@ -45,6 +45,7 @@ src/
   pages/*.html                      page bodies, each with a leading <!--meta {...} --> block
 scripts/build-pages.mjs             the generator
 assets/                             images, fonts, compiled CSS
+src/screens/                        full-size screenshot sources (not deployed)
 ```
 
 ### Adding a guide page
@@ -101,9 +102,10 @@ three.
   `https://apps.apple.com/app/id<APPLE_ID>` and add
   `<meta name="apple-itunes-app" content="app-id=<APPLE_ID>">` to each page's
   head for the Safari smart banner.
-- **Images.** App screenshots live in `assets/screens/` as `<name>.png` (the
-  full-resolution source, 1320x2868) plus generated `-320/-480/-640/-960.webp`
-  and a `-640.png` fallback. Never reference the full-size source from a page.
+- **Images.** Full-resolution screenshot sources (1320x2868) live in
+  `src/screens/<name>.png`; the deployed derivatives in `assets/screens/` are the
+  generated `-320/-480/-640/-960.webp` and a `-640.png` fallback. Sources are
+  not deployed.
   When the app's UI changes, drop the new captures in with **new names** (or a
   version suffix) rather than overwriting — GitHub Pages and browsers cache by
   URL, and overwriting in place left returning visitors on the old shots.

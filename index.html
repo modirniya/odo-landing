@@ -229,9 +229,9 @@
     <!-- Header -->
     <header class="site-header">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
-            <a href="/" class="flex items-center gap-3 flex-shrink-0" aria-label="Odometer home">
-                <img src="assets/icon-192.png" alt="" width="32" height="32" class="w-8 h-8 rounded-lg">
-                <span class="text-lg font-extrabold tracking-tight">Odo<span class="font-medium text-gray-400">meter</span></span>
+            <a href="/" class="flex items-center gap-3 min-w-0" aria-label="Odometer home">
+                <img src="assets/icon-64.png" srcset="assets/icon-64.png 64w, assets/icon-96.png 96w" sizes="32px" alt="" width="32" height="32" class="w-8 h-8 rounded-lg">
+                <span class="text-lg font-extrabold tracking-tight">Odo<span class="font-normal text-gray-400">meter</span></span>
             </a>
 
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
@@ -241,7 +241,7 @@
                 <a href="support/" class="hover:text-white transition-colors">Support</a>
             </nav>
 
-            <a href="#download" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full flex-shrink-0">
+            <a href="#download" class="btn-primary text-white text-sm font-semibold px-5 py-3 rounded-full flex-shrink-0">
                 Get the app
             </a>
         </div>
@@ -252,7 +252,7 @@
         <div class="max-w-4xl mx-auto text-center">
 
             <!-- App Icon -->
-            <div class="mb-10 animate-fade-in">
+            <div class="mb-10">
                 <img
                     src="assets/icon-224.png"
                     srcset="assets/icon-224.png 224w, assets/icon-336.png 336w"
@@ -266,17 +266,17 @@
             </div>
 
             <!-- Title -->
-            <h1 class="mb-3 animate-fade-in animate-delay-1">
+            <h1 class="mb-3">
                 <span class="block text-5xl md:text-7xl font-extrabold tracking-tight mb-5">Odo<span class="font-normal text-gray-400">meter</span></span>
-                <span class="block text-xl md:text-2xl text-gray-300 font-medium">Simple mileage tracker app</span>
+                <span class="block text-xl md:text-2xl text-gray-300 font-normal">Simple mileage tracker app</span>
             </h1>
-            <p class="text-lg text-gray-500 mb-12 animate-fade-in animate-delay-2 max-w-xl mx-auto">
+            <p class="text-lg text-gray-500 mb-12 max-w-xl mx-auto">
                 Paper simplicity, app organization. Type your odometer reading, tag the trip,
                 and export a clean log when the tax year ends.
             </p>
 
             <!-- Store badges -->
-            <div class="mb-6 animate-fade-in animate-delay-3 flex flex-wrap items-center justify-center gap-4">
+            <div class="mb-6 flex flex-wrap items-center justify-center gap-4">
                 <a href="https://apps.apple.com/us/developer/neuera-apps/id1895216844" target="_blank" rel="noopener noreferrer" class="inline-block transition-transform duration-300 hover:scale-[1.02]" aria-label="Odometer on the App Store (coming soon)">
                     <img src="assets/app-store-badge.svg" alt="Download on the App Store" width="119.66" height="40" class="h-auto w-[214px]" fetchpriority="high">
                 </a>
@@ -285,38 +285,38 @@
                 </a>
             </div>
 
-            <p class="text-gray-600 text-sm mb-20 animate-fade-in animate-delay-3">
+            <p class="text-gray-600 text-sm mb-20">
                 Free &bull; No ads &bull; No account &bull; No subscription
             </p>
 
             <!-- Phone Mockup with Gallery -->
-            <div class="animate-fade-in animate-delay-4">
+            <div>
                 <div class="phone-wrapper float-animation">
                     <div class="phone-glow"></div>
                     <div class="w-64 md:w-80 mx-auto rounded-[3rem] overflow-hidden phone-shadow border-[10px] border-gray-800/90 bg-gray-900">
                         <div class="gallery-container" id="screenshot-gallery">
                             <picture class="gallery-slide active">
-                                <source type="image/webp" srcset="assets/screens/home-320.webp 320w, assets/screens/home-480.webp 480w, assets/screens/home-640.webp 640w, assets/screens/home-960.webp 960w" sizes="(min-width: 768px) 300px, 244px">
+                                <source type="image/webp" srcset="assets/screens/home-320.webp 320w, assets/screens/home-480.webp 480w, assets/screens/home-640.webp 640w, assets/screens/home-960.webp 960w" sizes="(min-width: 768px) 300px, 236px">
                                 <img src="assets/screens/home-640.png" width="640" height="1391" class="w-full" alt="Odometer home screen: a Toyota Corolla with August totals of 2,030 miles and $398 in expenses, a 45% business share, and a dated feed of recent trips and fuel stops" fetchpriority="high" decoding="async">
                             </picture>
                             <picture class="gallery-slide">
-                                <source type="image/webp" srcset="assets/screens/add-trip-320.webp 320w, assets/screens/add-trip-480.webp 480w, assets/screens/add-trip-640.webp 640w, assets/screens/add-trip-960.webp 960w" sizes="(min-width: 768px) 300px, 244px">
+                                <source type="image/webp" srcset="assets/screens/add-trip-320.webp 320w, assets/screens/add-trip-480.webp 480w, assets/screens/add-trip-640.webp 640w, assets/screens/add-trip-960.webp 960w" sizes="(min-width: 768px) 300px, 236px">
                                 <img src="assets/screens/add-trip-640.png" width="640" height="1391" class="w-full" alt="Add-trip screen: a location snapshot on a map, a roller-style odometer input, and a business or personal toggle" loading="lazy" decoding="async">
                             </picture>
                             <picture class="gallery-slide">
-                                <source type="image/webp" srcset="assets/screens/add-expense-320.webp 320w, assets/screens/add-expense-480.webp 480w, assets/screens/add-expense-640.webp 640w, assets/screens/add-expense-960.webp 960w" sizes="(min-width: 768px) 300px, 244px">
+                                <source type="image/webp" srcset="assets/screens/add-expense-320.webp 320w, assets/screens/add-expense-480.webp 480w, assets/screens/add-expense-640.webp 640w, assets/screens/add-expense-960.webp 960w" sizes="(min-width: 768px) 300px, 236px">
                                 <img src="assets/screens/add-expense-640.png" width="640" height="1391" class="w-full" alt="Add-expense screen with fuel selected: location snapshot, odometer and fuel volume in kilometers and liters, and the amount in euros" loading="lazy" decoding="async">
                             </picture>
                             <picture class="gallery-slide">
-                                <source type="image/webp" srcset="assets/screens/export-320.webp 320w, assets/screens/export-480.webp 480w, assets/screens/export-640.webp 640w, assets/screens/export-960.webp 960w" sizes="(min-width: 768px) 300px, 244px">
+                                <source type="image/webp" srcset="assets/screens/export-320.webp 320w, assets/screens/export-480.webp 480w, assets/screens/export-640.webp 640w, assets/screens/export-960.webp 960w" sizes="(min-width: 768px) 300px, 236px">
                                 <img src="assets/screens/export-640.png" width="640" height="1391" class="w-full" alt="Export screen: CSV or PDF, trips or expenses or both, and an optional date range before sharing" loading="lazy" decoding="async">
                             </picture>
                             <picture class="gallery-slide">
-                                <source type="image/webp" srcset="assets/screens/vehicles-320.webp 320w, assets/screens/vehicles-480.webp 480w, assets/screens/vehicles-640.webp 640w, assets/screens/vehicles-960.webp 960w" sizes="(min-width: 768px) 300px, 244px">
+                                <source type="image/webp" srcset="assets/screens/vehicles-320.webp 320w, assets/screens/vehicles-480.webp 480w, assets/screens/vehicles-640.webp 640w, assets/screens/vehicles-960.webp 960w" sizes="(min-width: 768px) 300px, 236px">
                                 <img src="assets/screens/vehicles-640.png" width="640" height="1391" class="w-full" alt="Vehicle switcher in the dark theme, listing a Toyota Corolla and a Honda CR-V with their current odometer readings" loading="lazy" decoding="async">
                             </picture>
                             <picture class="gallery-slide">
-                                <source type="image/webp" srcset="assets/screens/units-320.webp 320w, assets/screens/units-480.webp 480w, assets/screens/units-640.webp 640w, assets/screens/units-960.webp 960w" sizes="(min-width: 768px) 300px, 244px">
+                                <source type="image/webp" srcset="assets/screens/units-320.webp 320w, assets/screens/units-480.webp 480w, assets/screens/units-640.webp 640w, assets/screens/units-960.webp 960w" sizes="(min-width: 768px) 300px, 236px">
                                 <img src="assets/screens/units-640.png" width="640" height="1391" class="w-full" alt="Units and currency settings: country, display currency, miles or kilometers, gallons or liters, and an editable mileage deduction rate" loading="lazy" decoding="async">
                             </picture>
                         </div>
@@ -324,7 +324,7 @@
                 </div>
 
                 <!-- Dot indicators -->
-                <div class="flex justify-center gap-3 mt-8" id="gallery-dots">
+                <div class="flex justify-center gap-1 mt-6" id="gallery-dots">
                     <button class="gallery-dot active" data-index="0" aria-label="Home screen"></button>
                     <button class="gallery-dot" data-index="1" aria-label="Log a trip"></button>
                     <button class="gallery-dot" data-index="2" aria-label="Log an expense"></button>
@@ -731,8 +731,8 @@
             <div class="grid gap-10 md:grid-cols-4 mb-12">
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-3 mb-4">
-                        <img src="assets/icon-192.png" alt="" width="32" height="32" class="w-8 h-8 rounded-lg" loading="lazy">
-                        <span class="text-lg font-extrabold tracking-tight">Odo<span class="font-medium text-gray-400">meter</span></span>
+                        <img src="assets/icon-64.png" srcset="assets/icon-64.png 64w, assets/icon-96.png 96w" sizes="32px" alt="" width="32" height="32" class="w-8 h-8 rounded-lg" loading="lazy">
+                        <span class="text-lg font-extrabold tracking-tight">Odo<span class="font-normal text-gray-400">meter</span></span>
                     </div>
                     <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
                         A simple mileage log for people who drive for work. Paper simplicity,
@@ -742,30 +742,30 @@
 
                 <div>
                     <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">Product</h3>
-                    <ul class="space-y-2.5 text-sm">
-                        <li><a href="#features" class="text-gray-500 hover:text-gray-300 transition-colors">Features</a></li>
-                        <li><a href="#how" class="text-gray-500 hover:text-gray-300 transition-colors">How it works</a></li>
-                        <li><a href="#faq" class="text-gray-500 hover:text-gray-300 transition-colors">FAQ</a></li>
-                        <li><a href="#download" class="text-gray-500 hover:text-gray-300 transition-colors">Download</a></li>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="#features" class="inline-block py-1.5 text-gray-500 hover:text-gray-300 transition-colors">Features</a></li>
+                        <li><a href="#how" class="inline-block py-1.5 text-gray-500 hover:text-gray-300 transition-colors">How it works</a></li>
+                        <li><a href="#faq" class="inline-block py-1.5 text-gray-500 hover:text-gray-300 transition-colors">FAQ</a></li>
+                        <li><a href="#download" class="inline-block py-1.5 text-gray-500 hover:text-gray-300 transition-colors">Download</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">Guides</h3>
-                    <ul class="space-y-2.5 text-sm">
-                        <li><a href="mileage-log-for-taxes/" class="text-gray-500 hover:text-gray-300 transition-colors">Mileage log for taxes</a></li>
-                        <li><a href="mileage-tracker-without-gps/" class="text-gray-500 hover:text-gray-300 transition-colors">Tracker without GPS</a></li>
-                        <li><a href="mileage-log-for-rideshare-drivers/" class="text-gray-500 hover:text-gray-300 transition-colors">For rideshare drivers</a></li>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="mileage-log-for-taxes/" class="inline-block py-1.5 text-gray-500 hover:text-gray-300 transition-colors">Mileage log for taxes</a></li>
+                        <li><a href="mileage-tracker-without-gps/" class="inline-block py-1.5 text-gray-500 hover:text-gray-300 transition-colors">Tracker without GPS</a></li>
+                        <li><a href="mileage-log-for-rideshare-drivers/" class="inline-block py-1.5 text-gray-500 hover:text-gray-300 transition-colors">For rideshare drivers</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">Company</h3>
-                    <ul class="space-y-2.5 text-sm">
-                        <li><a href="support/" class="text-gray-500 hover:text-gray-300 transition-colors">Support</a></li>
-                        <li><a href="privacy/" class="text-gray-500 hover:text-gray-300 transition-colors">Privacy policy</a></li>
-                        <li><a href="terms/" class="text-gray-500 hover:text-gray-300 transition-colors">Terms of service</a></li>
-                        <li><a href="mailto:hello@neuera.app" class="text-gray-500 hover:text-gray-300 transition-colors">hello@neuera.app</a></li>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="support/" class="inline-block py-1.5 text-gray-500 hover:text-gray-300 transition-colors">Support</a></li>
+                        <li><a href="privacy/" class="inline-block py-1.5 text-gray-500 hover:text-gray-300 transition-colors">Privacy policy</a></li>
+                        <li><a href="terms/" class="inline-block py-1.5 text-gray-500 hover:text-gray-300 transition-colors">Terms of service</a></li>
+                        <li><a href="mailto:hello@neuera.app" class="inline-block py-1.5 text-gray-500 hover:text-gray-300 transition-colors">hello@neuera.app</a></li>
                     </ul>
                 </div>
             </div>
@@ -840,26 +840,6 @@
             }
         })();
 
-        // Scroll Reveal
-        (function() {
-            const reveals = document.querySelectorAll('.reveal');
-
-            function checkReveal() {
-                reveals.forEach(el => {
-                    const windowHeight = window.innerHeight;
-                    const revealTop = el.getBoundingClientRect().top;
-                    const revealPoint = 150;
-
-                    if (revealTop < windowHeight - revealPoint) {
-                        el.classList.add('visible');
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', checkReveal);
-            checkReveal(); // Check on load
-        })();
-
         // Animated Road on Scroll
         (function() {
             const roadBase = document.querySelector('.road-base');
@@ -876,17 +856,34 @@
                 roadCenter.style.strokeDasharray = length;
                 roadCenter.style.strokeDashoffset = length;
 
-                function updateRoad() {
-                    const scrollTop = window.scrollY;
-                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                    const scrollPercent = Math.min(scrollTop / docHeight, 1);
+                // scrollHeight is a layout-flushing read; cache it and only
+                // recompute on resize, and coalesce scroll events onto a frame
+                // so the SVG is written at most once per paint.
+                let docHeight = 1;
+                let ticking = false;
 
-                    // Draw center line as user scrolls
-                    const drawLength = length * (1 - scrollPercent);
-                    roadCenter.style.strokeDashoffset = drawLength;
+                function measure() {
+                    docHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
                 }
 
-                window.addEventListener('scroll', updateRoad);
+                function updateRoad() {
+                    ticking = false;
+                    const scrollPercent = Math.min(window.scrollY / docHeight, 1);
+                    // Draw center line as user scrolls
+                    roadCenter.style.strokeDashoffset = length * (1 - scrollPercent);
+                }
+
+                function onScroll() {
+                    if (!ticking) {
+                        ticking = true;
+                        requestAnimationFrame(updateRoad);
+                    }
+                }
+
+                window.addEventListener('scroll', onScroll, { passive: true });
+                window.addEventListener('resize', () => { measure(); onScroll(); }, { passive: true });
+                window.addEventListener('load', () => { measure(); onScroll(); });
+                measure();
                 updateRoad();
             }
         })();
