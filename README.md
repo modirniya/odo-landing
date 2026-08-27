@@ -21,7 +21,15 @@ npm run serve      # http://localhost:4173
 | `npm run sync:legal` | Mirrors the privacy policy and terms from legal.neuera.app into `src/pages/` |
 | `npm run build:pages` | Wraps `src/pages/*.html` in `src/layout.html`, writes the output |
 | `npm run build:css` | Compiles `src/input.css` to `assets/site.css` (minified) |
+| `npm run inline:css` | Copies that CSS into a `<style data-inlined>` block in every page (see below) |
 | `npm run dev` | Tailwind in watch mode |
+
+**The stylesheet is inlined.** GitHub Pages caps caching at 10 minutes, so an
+external stylesheet is re-fetched almost every visit and cost a render-blocking
+round trip. `inline:css` writes the compiled CSS into every page instead —
+including the hand-written `index.html`, `support/index.html` and
+`privacy.html`, where the `<style data-inlined>` block is regenerated on each
+build. Never edit that block; edit `src/input.css` and rebuild.
 
 **Generated files are committed.** GitHub Pages serves this repo as-is, so
 `assets/site.css`, `404.html` and the `mileage-*/index.html` directories must be
